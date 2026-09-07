@@ -1,0 +1,29 @@
+======================================================================
+EVIDENCIA SIMULADA - NO GENERADA POR UNA EJECUCION REAL DE CLEANIT
+======================================================================
+
+Proyecto: CleanIt
+Version hipotetica: 0.3.0-rc2-simulada
+Rama hipotetica: qa
+Ambiente: qa-simulado
+Fecha documental: 2026-09-07
+
+Casos definidos ................................ 30
+Casos ejecutados realmente ...................... 0
+
+Ciclo 1 simulado
+  Aprobados ..................................... 25
+  Fallidos ....................................... 5
+  Tasa de aprobacion .......................... 83.3 %
+
+Ciclo 2 simulado
+  Repruebas ................................... 5/5 OK
+  Regresion seleccionada ...................... 7/7 OK
+  Consolidado hipotetico .................... 30/30 OK
+
+RESULTADO DOCUMENTAL: CANDIDATA HIPOTETICA PARA PRE-MAIN
+
+Sustituir esta salida por el reporte original de las herramientas cuando
+exista una aplicacion ejecutable. Registrar siempre commit, ambiente,
+versiones, fecha, ejecutor y defectos relacionados.
+
