@@ -1,0 +1,59 @@
+name: Solicitud de mejora
+description: Proponer una mejora o nueva funcionalidad para CleanIt
+title: "[Mejora]: "
+labels:
+  - enhancement
+  - triage
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problema o necesidad
+      description: Explique la necesidad sin comenzar por una tecnología concreta.
+    validations:
+      required: true
+  - type: dropdown
+    id: user
+    attributes:
+      label: Persona principalmente beneficiada
+      options:
+        - Participante
+        - Administrador
+        - Propietario o encargado
+        - Equipo de soporte
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Solución propuesta
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Criterios de aceptación sugeridos
+      placeholder: |
+        - Dado...
+        - Cuando...
+        - Entonces...
+    validations:
+      required: true
+  - type: dropdown
+    id: urgency
+    attributes:
+      label: Urgencia percibida
+      options:
+        - Baja
+        - Media
+        - Alta
+    validations:
+      required: true
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Revisión de alcance
+      options:
+        - label: Comprendo que la solicitud debe ser evaluada y priorizada por el Product Owner.
+          required: true
+

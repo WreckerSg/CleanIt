@@ -1,0 +1,73 @@
+name: Reporte de error
+description: Registrar un comportamiento incorrecto de CleanIt
+title: "[Bug]: "
+labels:
+  - bug
+  - triage
+body:
+  - type: markdown
+    attributes:
+      value: |
+        No incluya contraseñas, tokens ni datos personales. CleanIt esta actualmente en planificación; use esta plantilla para defectos reales cuando exista una versión ejecutable.
+  - type: input
+    id: versión
+    attributes:
+      label: Versión o commit
+      placeholder: v0.3.0 o SHA del commit
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Ambiente, navegador y dispositivo
+      placeholder: QA - Chrome - Windows 11
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Pasos para reproducir
+      placeholder: |
+        1. Iniciar sesión como...
+        2. Abrir...
+        3. Seleccionar...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Resultado esperado
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Resultado observado
+    validations:
+      required: true
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severidad propuesta
+      options:
+        - Crítica
+        - Alta
+        - Media
+        - Baja
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidencia revisada
+      description: Adjunte solo material que no exponga información sensible.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Verificaciones
+      options:
+        - label: Busque incidencias similares antes de crear esta.
+          required: true
+        - label: La evidencia no contiene secretos ni datos personales innecesarios.
+          required: true
+

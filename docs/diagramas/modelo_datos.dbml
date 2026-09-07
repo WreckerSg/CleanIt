@@ -1,0 +1,91 @@
+// Modelo conceptual propuesto. Debe convertirse en modelos y migraciones de Django.
+
+Enum user_role {
+  administrator
+  participant
+}
+
+Enum chore_frequency {
+  once
+  daily
+  weekly
+  monthly
+}
+
+Table users {
+  id bigint [pk, increment]
+  username varchar(150) [not null, unique]
+  email varchar(254) [not null, unique]
+  display_name varchar(150) [not null]
+  password_hash varchar(255) [not null, note: 'Gestionado por Django; nunca texto plano']
+  role user_role [not null]
+  is_active boolean [not null, default: true]
+  created_at timestamptz [not null]
+  updated_at timestamptz [not null]
+}
+
+Table zones {
+  id bigint [pk, increment]
+  name varchar(100) [not null, unique]
+  description text
+  is_active boolean [not null, default: true]
+  created_at timestamptz [not null]
+}
+
+Table chores {
+  id bigint [pk, increment]
+  name varchar(150) [not null]
+  description text
+  zone_id bigint [not null]
+  frequency chore_frequency [not null]
+  recurrence_anchor_day integer [note: '1 a 31 para recurrencia mensual']
+  next_due_date date
+  is_active boolean [not null, default: true]
+  created_by_id bigint [not null]
+  created_at timestamptz [not null]
+  updated_at timestamptz [not null]
+}
+
+Table assignments {
+  id bigint [pk, increment]
+  chore_id bigint [not null]
+  assignee_id bigint [not null]
+  starts_on date [not null]
+  ends_on date
+  is_active boolean [not null, default: true]
+  created_by_id bigint [not null]
+  created_at timestamptz [not null]
+
+  Indexes {
+    (chore_id, is_active)
+    (assignee_id, is_active)
+  }
+}
+
+Table completions {
+  id bigint [pk, increment]
+  chore_id bigint [not null]
+  assignment_id bigint [not null]
+  completed_by_id bigint [not null]
+  scheduled_for date [not null]
+  completed_at timestamptz [not null]
+  chore_name_snapshot varchar(150) [not null]
+  zone_name_snapshot varchar(100) [not null]
+  assignee_name_snapshot varchar(150) [not null]
+  note text
+
+  Indexes {
+    (chore_id, scheduled_for) [unique, name: 'one_completion_per_occurrence']
+    (completed_by_id, completed_at)
+  }
+}
+
+Ref: chores.zone_id > zones.id
+Ref: chores.created_by_id > users.id
+Ref: assignments.chore_id > chores.id
+Ref: assignments.assignee_id > users.id
+Ref: assignments.created_by_id > users.id
+Ref: completions.chore_id > chores.id
+Ref: completions.assignment_id > assignments.id
+Ref: completions.completed_by_id > users.id
+

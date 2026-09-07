@@ -1,0 +1,23 @@
+======================================================================
+EVIDENCIA SIMULADA - NO GENERADA POR UNA EJECUCIÓN REAL DE CLEANIT
+======================================================================
+
+Proyecto: CleanIt
+Versión hipotética: 0.3.0-rc2-simulada
+Ambiente: qa-simulado
+Fecha documental: 2026-09-07
+
+Pruebas funcionales consideradas ............. 24
+Aprobadas consolidadas ........................ 24
+Fallidas consolidadas ......................... 0
+Bloqueadas .................................... 0
+
+Repruebas ciclo 2 ............................. 4/4 OK (simulado)
+Regresión seleccionada ........................ 6/6 OK (simulado)
+Restauración de respaldo ...................... OK  (simulado)
+
+RESULTADO DOCUMENTAL: CANDIDATA A ACEPTACIÓN
+
+NOTA: Sustituir este archivo por la salida original de la herramienta de
+pruebas cuando exista una aplicación ejecutable. Conservar el identificador
+del commit, las versiones del ambiente y la fecha de ejecución real.
