@@ -3,7 +3,7 @@
 CleanIt es la propuesta de una aplicación web para organizar, asignar y supervisar tareas de limpieza en una casa compartida, residencia estudiantil o pequeño local. El sistema busca reemplazar acuerdos verbales y mensajes dispersos por responsabilidades visibles, frecuencias definidas y un historial verificable.
 
 > [!IMPORTANT]
-> **Estado del proyecto:** planificación y documentación académica. A la fecha de esta entrega no existe una versión funcional ni desplegada. Los resultados incluidos en `docs/evidencias/` son simulaciones académicas, no salidas obtenidas de una aplicación ejecutable.
+> **Estado del proyecto:** planificación y documentación académica. A la fecha de esta entrega no existe una versión funcional ni desplegada. Los resultados incluidos en [`Plan de pruebas/evidencias-simuladas/`](Plan%20de%20pruebas/evidencias-simuladas/README.md) son simulaciones académicas, no salidas obtenidas de una aplicación ejecutable.
 
 ## Objetivo
 
@@ -28,8 +28,8 @@ Quedan fuera de la primera versión los pagos, la contratación de personal, el 
 
 | Requisito de la actividad | Documento principal | Material complementario |
 |---|---|---|
-| Plan de pruebas | [Plan de pruebas](docs/01_PLAN_DE_PRUEBAS.md) | [Casos detallados](docs/02_CASOS_DE_PRUEBA.md) y [matriz de trazabilidad](docs/07_MATRIZ_DE_TRAZABILIDAD.md) |
-| Evidencias simuladas | [Resultados simulados](docs/03_RESULTADOS_SIMULADOS.md) | [Evidencias por ciclo](docs/evidencias/README.md) |
+| Plan de pruebas | [Carpeta del Paso 1](Plan%20de%20pruebas/README.md) | Definiciones, estrategia, 30 casos detallados, métricas, trazabilidad y plantillas |
+| Evidencias simuladas | [Resultados simulados](Plan%20de%20pruebas/evidencias-simuladas/README.md) | Dos ciclos hipotéticos, defectos y salida de ejemplo |
 | Manual básico | [Manual de usuario](docs/04_MANUAL_DE_USUARIO.md) | Procedimientos para administrador y participante |
 | Documentación técnica | [Documentación técnica](docs/05_DOCUMENTACION_TECNICA.md) | [Arquitectura](docs/diagramas/arquitectura.mmd) y [modelo de datos](docs/diagramas/modelo_datos.dbml) |
 | Gestión postproyecto | [Estrategia postproyecto](docs/06_GESTION_POST_PROYECTO.md) | Plantillas de incidencias y cambios en `.github/` |
@@ -83,11 +83,31 @@ La carpeta `src/` de esta entrega contiene solo una nota de planificación. La e
 - **Flujo:** To Do, In Progress, In Review y Done.
 - **Sprints:** cuatro iteraciones de dos semanas.
 
+## Flujo de ramas
+
+El repositorio utiliza cuatro ramas permanentes. Los cambios avanzan en un solo sentido y mediante pull request:
+
+```mermaid
+flowchart LR
+    D["dev - desarrollo"] --> Q["qa - pruebas"]
+    Q --> P["pre-main - preproducción"]
+    P --> M["main - producción"]
+```
+
+| Rama | Propósito | Condición para recibir cambios |
+|---|---|---|
+| `dev` | Integrar desarrollo y documentación en curso | Revisión básica y relación con Jira |
+| `qa` | Ejecutar pruebas unitarias, de integración y del sistema | Alcance identificable y casos asociados |
+| `pre-main` | Regresión, seguridad, rendimiento y aceptación | Criterios de salida de QA satisfechos |
+| `main` | Conservar únicamente versiones aceptadas | Aprobación final y ausencia de defectos críticos o altos |
+
+Las reglas completas están en [CONTRIBUTING.md](CONTRIBUTING.md).
+
 ## Cómo revisar esta entrega
 
 1. Leer este archivo y el [estado del proyecto](docs/00_ESTADO_DEL_PROYECTO.md).
-2. Revisar la estrategia y los [casos de prueba](docs/02_CASOS_DE_PRUEBA.md).
-3. Comprobar que los [resultados](docs/03_RESULTADOS_SIMULADOS.md) están identificados como simulados.
+2. Revisar el índice del [Plan de pruebas](Plan%20de%20pruebas/README.md).
+3. Comprobar que los [resultados](Plan%20de%20pruebas/evidencias-simuladas/README.md) están identificados como simulados.
 4. Consultar el [manual de usuario](docs/04_MANUAL_DE_USUARIO.md).
 5. Revisar la [documentación técnica](docs/05_DOCUMENTACION_TECNICA.md).
 6. Evaluar la [estrategia de soporte y mantenimiento](docs/06_GESTION_POST_PROYECTO.md).
