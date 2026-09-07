@@ -3,12 +3,23 @@
 ## Flujo de trabajo
 
 1. Seleccionar en Jira una historia, tarea o defecto listo para iniciar.
-2. Crear una rama desde `develop` usando la clave de Jira.
+2. Crear una rama corta desde `dev` usando la clave de Jira.
 3. Realizar cambios pequeños y verificables.
 4. Ejecutar las pruebas relacionadas cuando exista código.
-5. Abrir un pull request hacia `develop`.
+5. Abrir un pull request hacia `dev`.
 6. Solicitar revisión y resolver observaciones.
-7. Integrar solo cuando se cumpla la definición de terminado.
+7. Promover la versión mediante pull requests en el orden `dev` -> `qa` -> `pre-main` -> `main`.
+
+## Responsabilidad de las ramas permanentes
+
+| Rama | Uso autorizado | Validación principal |
+|---|---|---|
+| `dev` | Desarrollo y documentación en curso | Revisión del cambio y pruebas unitarias disponibles |
+| `qa` | Versión candidata para pruebas | Integración, sistema y registro de defectos |
+| `pre-main` | Versión preproductiva | Regresión, seguridad, rendimiento y aceptación |
+| `main` | Versión productiva o entrega estable | Solo cambios aprobados desde `pre-main` |
+
+No se deben enviar cambios directamente a `main`. Una corrección urgente debe partir de `main`, validarse y reintegrarse también en las ramas anteriores para evitar divergencias.
 
 ## Nombres de ramas
 
@@ -16,7 +27,7 @@
 feature/SCRUM-17-crear-tareas
 fix/SCRUM-19-corregir-recurrencia
 docs/SCRUM-35-manual-usuario
-test/SCRUM-33-pruebas-integración
+test/SCRUM-33-pruebas-integracion
 ```
 
 ## Mensajes de commit
@@ -25,7 +36,7 @@ Usar la clave de Jira y un verbo en presente:
 
 ```text
 SCRUM-17 agrega formulario de creación de tareas
-SCRUM-19 válida la frecuencia mensual
+SCRUM-19 valida la frecuencia mensual
 SCRUM-35 documenta el procedimiento de respaldo
 ```
 
