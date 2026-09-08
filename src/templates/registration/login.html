@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Ingresar | CleanIt{% endblock %}
+
+{% block content %}
+<section class="auth-layout">
+    <div class="auth-intro">
+        <p class="eyebrow">Organización compartida</p>
+        <h1>La limpieza empieza con responsabilidades claras.</h1>
+        <p>Consulta tus tareas, registra su cumplimiento y mantén visible el trabajo del equipo.</p>
+    </div>
+
+    <div class="card auth-card">
+        <h2>Iniciar sesión</h2>
+        <p class="muted">Ingresa con el usuario asignado por el administrador.</p>
+
+        {% if form.errors %}
+            <p class="form-error" role="alert">El usuario o la contraseña no son correctos.</p>
+        {% endif %}
+
+        <form method="post">
+            {% csrf_token %}
+            {% if next %}<input type="hidden" name="next" value="{{ next }}">{% endif %}
+
+            <label for="id_username">Usuario</label>
+            <input id="id_username" name="username" type="text" autocomplete="username" autofocus required>
+
+            <label for="id_password">Contraseña</label>
+            <input id="id_password" name="password" type="password" autocomplete="current-password" required>
+
+            <button class="button button-primary button-block" type="submit">Ingresar</button>
+        </form>
+    </div>
+</section>
+{% endblock %}

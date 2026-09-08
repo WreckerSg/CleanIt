@@ -1,7 +1,33 @@
 # Código fuente
 
-Esta carpeta está reservada para la futura implementación de CleanIt con Python y Django.
+Esta carpeta contiene la aplicación web ejecutable de CleanIt.
 
-> No contiene código ejecutable porque el proyecto se encuentra en fase de planificación. No se incluyen archivos de ejemplo que puedan confundirse con una versión funcional.
+El primer incremento del Paso 2 incluye:
 
-La estructura propuesta se encuentra en [`docs/05_DOCUMENTACION_TECNICA.md`](../docs/05_DOCUMENTACION_TECNICA.md).
+- Configuración base en Django.
+- Usuarios con roles de administrador y participante.
+- Inicio y cierre de sesión.
+- Panel inicial adaptado al rol autenticado.
+- Panel administrativo de Django.
+- Pruebas automatizadas de acceso y permisos básicos.
+
+## Ejecución local
+
+Desde la raíz del repositorio:
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py createsuperuser
+python manage.py runserver
+```
+
+En Windows PowerShell, activa el entorno con:
+
+```powershell
+.venv\Scripts\Activate.ps1
+```
+
+La aplicación quedará disponible en `http://127.0.0.1:8000/`.

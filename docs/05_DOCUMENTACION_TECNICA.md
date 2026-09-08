@@ -1,5 +1,8 @@
 # Documentación técnica de CleanIt
 
+> [!WARNING]
+> Documento de planificación conservado como antecedente. La descripción vigente se encuentra en [`Documentación técnica y de usuario/02_Descripcion_y_justificacion_tecnica.md`](../Documentaci%C3%B3n%20t%C3%A9cnica%20y%20de%20usuario/02_Descripcion_y_justificacion_tecnica.md).
+
 ## 1. Estado y objetivo
 
 Este documento específica la solución propuesta para la futura implementación de CleanIt. No describe una aplicación ya construida. Su objetivo es orientar el desarrollo, las pruebas, el despliegue y el mantenimiento sin ampliar el alcance aprobado.

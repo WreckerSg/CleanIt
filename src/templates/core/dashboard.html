@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}Inicio | CleanIt{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div>
+        <p class="eyebrow">Panel principal</p>
+        <h1>Hola, {{ user.first_name|default:user.username }}.</h1>
+        <p>Tu espacio para organizar y comprobar las tareas de limpieza.</p>
+    </div>
+    <span class="role-chip">{{ user.get_role_display }}</span>
+</section>
+
+<section class="dashboard-grid" aria-label="Opciones de CleanIt">
+    <article class="card feature-card">
+        <span class="feature-icon" aria-hidden="true">☷</span>
+        <h2>Mis tareas pendientes</h2>
+        <p>Consulta las actividades asignadas y su próxima fecha.</p>
+        <span class="status-tag">Próximo incremento</span>
+    </article>
+
+    <article class="card feature-card">
+        <span class="feature-icon" aria-hidden="true">✓</span>
+        <h2>Registrar cumplimiento</h2>
+        <p>Marca una actividad como realizada y conserva la evidencia.</p>
+        <span class="status-tag">Próximo incremento</span>
+    </article>
+
+    <article class="card feature-card">
+        <span class="feature-icon" aria-hidden="true">◷</span>
+        <h2>Historial</h2>
+        <p>Revisa quién completó cada tarea y en qué momento.</p>
+        <span class="status-tag">Próximo incremento</span>
+    </article>
+
+    {% if is_administrator %}
+        <article class="card feature-card feature-card-admin">
+            <span class="feature-icon" aria-hidden="true">⚙</span>
+            <h2>Administrar usuarios</h2>
+            <p>Crea participantes, activa cuentas y define responsabilidades.</p>
+            {% if user.is_staff %}
+                <a class="button button-primary" href="{% url 'admin:index' %}">Abrir administración</a>
+            {% else %}
+                <span class="status-tag">Requiere permiso de personal</span>
+            {% endif %}
+        </article>
+    {% endif %}
+</section>
+{% endblock %}

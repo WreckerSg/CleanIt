@@ -1,12 +1,23 @@
 # Registro de cambios
 
-Los cambios relevantes de CleanIt se documentarán en este archivo. El proyecto seguirá versionamiento semántico a partir de su primera versión ejecutable.
+Los cambios relevantes de CleanIt se documentan en este archivo.
+
+## [0.3.0] - En desarrollo
+
+### Agregado
+
+- Aplicación ejecutable con Python 3.12 y Django 5.2.17 LTS.
+- Usuario personalizado con roles Administrador y Participante.
+- Inicio y cierre de sesión, panel diferenciado y administración de cuentas.
+- Configuración para SQLite local y PostgreSQL mediante Docker Compose.
+- Seis pruebas automatizadas de modelo, autenticación, acceso y autorización.
+- Carpeta del Paso 2 con manual, descripción técnica y guía de instalación.
 
 ## [0.2.0] - 2026-09-07
 
 ### Agregado
 
-- Plan de pruebas y 24 casos detallados.
+- Plan de pruebas y 30 casos detallados.
 - Matriz de trazabilidad con las historias SCRUM-15 a SCRUM-23.
 - Dos ciclos de resultados simulados claramente identificados.
 - Manual básico de usuario propuesto.
@@ -27,4 +38,3 @@ Los cambios relevantes de CleanIt se documentarán en este archivo. El proyecto 
 - Planificación Scrum de cuatro sprints.
 - Backlog y roles en Jira.
 - Selección del stack tecnológico.
-

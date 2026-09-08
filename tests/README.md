@@ -1,6 +1,12 @@
 # Pruebas automatizadas
 
-Esta carpeta se utilizará cuando comience la implementación. Se propone separar las pruebas en:
+La implementación ya cuenta con pruebas de modelos, autenticación, acceso y presentación por rol dentro de cada aplicación Django. Ejecútelas desde la raíz con:
+
+```bash
+python manage.py test
+```
+
+Cuando crezca la suite, se separará en:
 
 ```text
 tests/
@@ -10,6 +16,6 @@ tests/
 `-- security/       # Autenticación, autorización y entradas maliciosas
 ```
 
-Los casos diseñados antes de la implementación se encuentran en el [`Modelo de casos de prueba`](../Plan%20de%20pruebas/04_Modelo_de_casos_de_prueba.md). Los resultados actuales son simulados y no corresponden a la ejecución de una suite automatizada.
+Los casos diseñados antes de la implementación se encuentran en el [`Modelo de casos de prueba`](../Plan%20de%20pruebas/04_Modelo_de_casos_de_prueba.md). Las evidencias del Paso 1 continúan identificadas como simuladas; no deben confundirse con la salida de la suite actual.
 
-Cuando exista código, las pruebas se crearán inicialmente desde `dev`, se ejecutarán formalmente en `qa` y se repetirán como regresión en `pre-main` antes de promover una versión a `main`.
+Las pruebas se crean inicialmente desde `dev`, se ejecutan formalmente en `qa` y se repiten como regresión en `pre-main` antes de promover una versión a `main`.

@@ -1,0 +1,40 @@
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${DATABASE_NAME:-cleanit}
+      POSTGRES_USER: ${DATABASE_USER:-cleanit}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD:?Defina DATABASE_PASSWORD en .env}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DATABASE_USER:-cleanit} -d ${DATABASE_NAME:-cleanit}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    volumes:
+      - cleanit_postgres:/var/lib/postgresql/data
+
+  web:
+    build: .
+    restart: unless-stopped
+    command: >-
+      sh -c "python manage.py migrate --noinput &&
+      gunicorn config.wsgi:application --chdir src --bind 0.0.0.0:8000"
+    environment:
+      DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY:?Defina DJANGO_SECRET_KEY en .env}
+      DJANGO_DEBUG: ${DJANGO_DEBUG:-True}
+      DJANGO_ALLOWED_HOSTS: ${DJANGO_ALLOWED_HOSTS:-localhost,127.0.0.1}
+      DJANGO_TIME_ZONE: ${DJANGO_TIME_ZONE:-America/Bogota}
+      DATABASE_NAME: ${DATABASE_NAME:-cleanit}
+      DATABASE_USER: ${DATABASE_USER:-cleanit}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD:?Defina DATABASE_PASSWORD en .env}
+      DATABASE_HOST: db
+      DATABASE_PORT: 5432
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8000:8000"
+
+volumes:
+  cleanit_postgres:

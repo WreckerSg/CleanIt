@@ -1,5 +1,8 @@
 # Manual básico de usuario de CleanIt
 
+> [!WARNING]
+> Documento de planificación conservado como antecedente. El manual vigente y sincronizado con la aplicación se encuentra en [`Documentación técnica y de usuario/01_Manual_basico_de_usuario.md`](../Documentaci%C3%B3n%20t%C3%A9cnica%20y%20de%20usuario/01_Manual_basico_de_usuario.md).
+
 ## Acerca de este manual
 
 CleanIt se encuentra en fase de planificación. Este manual describe la experiencia propuesta para la primera versión y servirá como criterio de diseño y aceptación durante la implementación. Los nombres o la ubicación exacta de algunos controles podrán ajustarse después de las pruebas de usabilidad.
