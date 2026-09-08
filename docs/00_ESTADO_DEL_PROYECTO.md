@@ -7,7 +7,7 @@ El **Paso 1 fue aceptado** y promovido a `main`. El incremento 2.1 de CleanIt se
 El producto mínimo viable todavía no está completo ni desplegado. En consecuencia:
 
 - el manual del Paso 2 distingue las funciones disponibles de las futuras;
-- seis verificaciones automatizadas ya se ejecutan sobre software real;
+- ocho verificaciones automatizadas están definidas sobre software real;
 - las evidencias y métricas conservadas dentro del Paso 1 siguen siendo simulaciones académicas históricas;
 - las evidencias reales formales se generarán al promover cada incremento a `qa`;
 - ningún incremento debe considerarse productivo hasta avanzar por `qa`, `pre-main` y `main`.

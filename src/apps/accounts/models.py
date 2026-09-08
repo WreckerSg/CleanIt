@@ -23,5 +23,16 @@ class User(AbstractUser):
     def is_administrator(self) -> bool:
         return self.role == self.Role.ADMIN or self.is_superuser
 
+    @property
+    def role_name(self) -> str:
+        if self.is_administrator:
+            return self.Role.ADMIN.label
+        return self.get_role_display()
+
+    def save(self, *args, **kwargs):
+        if self.is_superuser:
+            self.role = self.Role.ADMIN
+        return super().save(*args, **kwargs)
+
     def __str__(self) -> str:
         return self.get_full_name() or self.username

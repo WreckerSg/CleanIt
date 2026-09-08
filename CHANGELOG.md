@@ -10,7 +10,7 @@ Los cambios relevantes de CleanIt se documentan en este archivo.
 - Usuario personalizado con roles Administrador y Participante.
 - Inicio y cierre de sesión, panel diferenciado y administración de cuentas.
 - Configuración para SQLite local y PostgreSQL mediante Docker Compose.
-- Seis pruebas automatizadas de modelo, autenticación, acceso y autorización.
+- Ocho pruebas automatizadas de modelo, autenticación, acceso, autorización y presentación del rol.
 - Carpeta del Paso 2 con manual, descripción técnica y guía de instalación.
 
 ## [0.2.0] - 2026-09-07

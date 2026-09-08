@@ -33,3 +33,14 @@ class DashboardTests(TestCase):
         response = self.client.get(reverse("dashboard"))
 
         self.assertContains(response, "Administrar usuarios")
+
+    def test_superuser_is_shown_as_administrator(self):
+        user = User.objects.create_superuser(
+            username="superusuario",
+            email="superusuario@example.com",
+        )
+        self.client.force_login(user)
+
+        response = self.client.get(reverse("dashboard"))
+
+        self.assertContains(response, '<span class="role-chip">Administrador</span>', html=True)

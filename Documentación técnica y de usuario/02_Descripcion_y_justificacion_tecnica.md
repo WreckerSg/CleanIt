@@ -85,16 +85,18 @@ La migración `accounts/0001_initial.py` crea el esquema de usuarios de forma re
 
 ## 7. Pruebas automatizadas actuales
 
-La suite contiene seis verificaciones:
+La suite contiene ocho verificaciones:
 
 | Grupo | Verificación |
 |---|---|
 | Modelo | Un usuario nuevo recibe el rol Participante |
 | Modelo | El rol Administrador se reconoce correctamente |
+| Modelo | Un superusuario recibe automáticamente el rol Administrador |
 | Autenticación | Una cuenta inactiva no puede ingresar |
 | Acceso | El panel redirige a quien no tiene sesión |
 | Autorización | El participante no ve la administración |
 | Autorización | El administrador sí ve su opción de gestión |
+| Presentación | El superusuario se identifica visualmente como Administrador |
 
 Comandos de control:
 
@@ -104,7 +106,7 @@ python manage.py check
 python manage.py makemigrations --check --dry-run
 ```
 
-La ejecución local del incremento 2.1 produjo **6 pruebas aprobadas, 0 fallidas** y **0 problemas en la comprobación de Django**. La evidencia formal se generará de nuevo al promover el cambio a `qa`.
+La verificación completa de este ajuste debe producir **8 pruebas aprobadas, 0 fallidas** y **0 problemas en la comprobación de Django**. La evidencia formal se generará al promover el cambio a `qa`.
 
 ## 8. Limitaciones actuales
 

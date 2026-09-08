@@ -25,6 +25,15 @@ class UserModelTests(TestCase):
 
         self.assertTrue(user.is_administrator)
 
+    def test_superuser_receives_admin_role(self):
+        user = User.objects.create_superuser(
+            username="superusuario",
+            email="superusuario@example.com",
+        )
+
+        self.assertEqual(user.role, User.Role.ADMIN)
+        self.assertEqual(user.role_name, "Administrador")
+
     def test_inactive_user_cannot_authenticate(self):
         test_password = secrets.token_urlsafe(18)
         User.objects.create_user(

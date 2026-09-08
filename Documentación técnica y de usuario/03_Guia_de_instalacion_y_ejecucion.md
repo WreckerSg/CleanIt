@@ -98,8 +98,8 @@ python manage.py makemigrations --check --dry-run
 
 El resultado esperado para el incremento 2.1 es:
 
-- 6 pruebas ejecutadas;
-- 6 pruebas aprobadas;
+- 8 pruebas ejecutadas;
+- 8 pruebas aprobadas;
 - 0 fallos;
 - 0 problemas reportados por `check`;
 - ninguna migración pendiente de crear.
