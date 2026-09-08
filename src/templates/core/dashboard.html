@@ -36,6 +36,20 @@
 
     {% if is_administrator %}
         <article class="card feature-card feature-card-admin">
+            <span class="feature-icon" aria-hidden="true">▦</span>
+            <h2>Gestionar tareas</h2>
+            <p>Crea actividades, define responsables, frecuencias y próximas fechas.</p>
+            <a class="button button-primary" href="{% url 'chore_list' %}">Abrir tareas</a>
+        </article>
+
+        <article class="card feature-card feature-card-admin">
+            <span class="feature-icon" aria-hidden="true">⌂</span>
+            <h2>Gestionar zonas</h2>
+            <p>Organiza los espacios donde se realizan las actividades de limpieza.</p>
+            <a class="button button-primary" href="{% url 'zone_list' %}">Abrir zonas</a>
+        </article>
+
+        <article class="card feature-card feature-card-admin">
             <span class="feature-icon" aria-hidden="true">⚙</span>
             <h2>Administrar usuarios</h2>
             <p>Crea participantes, activa cuentas y define responsabilidades.</p>

@@ -1,6 +1,6 @@
 # Pruebas automatizadas
 
-La implementación ya cuenta con pruebas de modelos, autenticación, acceso y presentación por rol dentro de cada aplicación Django. Ejecútelas desde la raíz con:
+La implementación cuenta con 18 pruebas de modelos, autenticación, acceso, presentación por rol, zonas y tareas dentro de cada aplicación Django. Ejecútelas desde la raíz con:
 
 ```bash
 python manage.py test

@@ -2,22 +2,22 @@
 
 ## 1. Estado técnico
 
-CleanIt ya no es solo una propuesta documental. El incremento 2.1 contiene una aplicación Django ejecutable con autenticación, roles, panel diferenciado, administración y pruebas automatizadas. Se encuentra en `dev` hasta completar su revisión.
+CleanIt ya no es solo una propuesta documental. El incremento 2.2 contiene una aplicación Django ejecutable con autenticación, roles, panel diferenciado, administración de cuentas, zonas y tareas. Se encuentra en `dev` hasta completar su validación en Windows.
 
 ## 2. Tecnologías utilizadas
 
-| Área | Tecnología versionada | Uso real en el incremento 2.1 |
+| Área | Tecnología versionada | Uso real en el incremento 2.2 |
 |---|---|---|
 | Lenguaje | Python 3.12 | Configuración, modelos, vistas y pruebas |
 | Framework web | Django 5.2.17 LTS | Autenticación, autorización, ORM, migraciones, plantillas, administración y pruebas |
-| Interfaz | Plantillas Django, HTML5 y CSS3 | Página de acceso, panel adaptable y controles por rol |
+| Interfaz | Plantillas Django, HTML5 y CSS3 | Acceso, panel, formularios y tablas adaptables |
 | Base de datos local | SQLite | Ejecución y pruebas rápidas sin servicios externos |
 | Base de datos integrada | PostgreSQL 16 | Servicio persistente definido en Docker Compose |
 | Servidor de aplicación | Gunicorn 23.0.0 | Ejecución WSGI dentro del contenedor web |
 | Contenedores | Docker y Docker Compose | Reproducción de Django y PostgreSQL |
 | Versionamiento | Git y GitHub | Flujo `dev` → `qa` → `pre-main` → `main` |
 
-Bootstrap continúa dentro del stack aprobado para componentes posteriores. El incremento 2.1 usa una hoja CSS propia y pequeña para evitar incorporar componentes que aún no requiere. Su introducción se registrará cuando se implementen listados y formularios del producto.
+Bootstrap continúa como alternativa del stack aprobado, pero no se incorporó todavía. La interfaz actual utiliza una hoja CSS propia y no depende de recursos externos para mostrar el acceso, los formularios ni los listados. Si se adopta Bootstrap más adelante, el cambio deberá simplificar estilos existentes y quedar registrado.
 
 ## 3. Justificación de las decisiones
 
@@ -54,6 +54,7 @@ flowchart TD
 Es un monolito modular. En este incremento existen:
 
 - `accounts`: usuario personalizado, roles, administración y rutas de sesión;
+- `chores`: zonas, tareas, responsables, frecuencias, formularios y permisos de administración;
 - `core`: panel principal y presentación según permisos;
 - `config`: configuración, rutas globales y entrada WSGI/ASGI;
 - `templates`: vistas HTML compartidas;
@@ -65,6 +66,9 @@ Es un monolito modular. En este incremento existen:
 - Django gestiona el hash de las contraseñas.
 - Las cuentas inactivas no pueden autenticarse.
 - El panel cambia según el rol evaluado en el servidor.
+- Las rutas de zonas y tareas vuelven a comprobar el rol en el servidor.
+- Un participante recibe un error 403 aunque escriba directamente una URL administrativa.
+- Zonas y responsables inactivos no pueden utilizarse en tareas nuevas.
 - El cierre de sesión exige `POST` y token CSRF.
 - Se habilitaron protección CSRF, `X-Frame-Options: DENY` y `nosniff`.
 - Las cookies de sesión y CSRF están marcadas como `HttpOnly`.
@@ -81,11 +85,16 @@ El modelo `accounts.User` amplía `AbstractUser` e incorpora:
 - estado activo heredado de Django;
 - reconocimiento de superusuarios como administradores funcionales.
 
-La migración `accounts/0001_initial.py` crea el esquema de usuarios de forma repetible.
+La migración `accounts/0001_initial.py` crea el esquema de usuarios. La migración `chores/0001_initial.py` incorpora:
+
+- `Zone`: nombre único, descripción, estado y fechas de control;
+- `Chore`: nombre, descripción, zona, responsable, frecuencia, próxima fecha, estado y autor del registro.
+
+Las relaciones con zona y responsable utilizan `PROTECT` para impedir eliminaciones que rompan la integridad. La interfaz aplica retiro o desactivación lógica mediante `is_active`.
 
 ## 7. Pruebas automatizadas actuales
 
-La suite contiene ocho verificaciones:
+La suite del incremento 2.2 contiene dieciocho verificaciones. Las ocho primeras cubren cuentas y panel:
 
 | Grupo | Verificación |
 |---|---|
@@ -98,6 +107,21 @@ La suite contiene ocho verificaciones:
 | Autorización | El administrador sí ve su opción de gestión |
 | Presentación | El superusuario se identifica visualmente como Administrador |
 
+Las diez verificaciones restantes cubren la gestión:
+
+| Grupo | Verificación |
+|---|---|
+| Modelo | Una tarea rechaza zonas inactivas |
+| Formulario | Una tarea rechaza responsables inactivos |
+| Acceso | Un visitante es enviado al inicio de sesión |
+| Autorización | Un participante no abre la gestión de tareas |
+| Autorización | Un participante no crea zonas mediante una solicitud directa |
+| Interfaz | Los cuatro listados y formularios administrativos se renderizan |
+| CRUD | El administrador crea una zona |
+| CRUD | El administrador crea una tarea con autor y responsable |
+| Retiro lógico | Una tarea solo se retira mediante `POST` |
+| Integridad | Una zona con tareas activas no puede desactivarse |
+
 Comandos de control:
 
 ```bash
@@ -106,11 +130,12 @@ python manage.py check
 python manage.py makemigrations --check --dry-run
 ```
 
-La verificación completa de este ajuste debe producir **8 pruebas aprobadas, 0 fallidas** y **0 problemas en la comprobación de Django**. La evidencia formal se generará al promover el cambio a `qa`.
+La validación del incremento 2.1 en Windows produjo **8 pruebas aprobadas, 0 fallidas**. El incremento 2.2 produjo en desarrollo **18 pruebas aprobadas, 0 fallidas**, sin problemas de sistema ni migraciones sin registrar. La evidencia formal se repetirá al promover el cambio a `qa`.
 
 ## 8. Limitaciones actuales
 
-- Todavía no existen modelos de zonas, tareas ni cumplimientos.
+- Todavía no existe el registro de cumplimientos ni el cálculo automático de recurrencias.
+- El participante aún no consulta sus tareas desde las tarjetas del panel.
 - No se ha ejecutado la validación formal en `qa`.
 - Docker no pudo ejecutarse dentro del ambiente de edición actual; su configuración debe comprobarse en un equipo con Docker Desktop o Docker Engine.
 - No existe un despliegue público.

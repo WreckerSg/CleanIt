@@ -3,7 +3,7 @@
 CleanIt es una aplicación web en desarrollo para organizar, asignar y supervisar tareas de limpieza en una casa compartida, residencia estudiantil o pequeño local. El sistema busca reemplazar acuerdos verbales y mensajes dispersos por responsabilidades visibles, frecuencias definidas y un historial verificable.
 
 > [!IMPORTANT]
-> **Estado del proyecto:** el Paso 1 fue aceptado en `main`. El incremento 2.1 de la aplicación está en `dev` e incluye Django, autenticación, roles, panel inicial, administración de cuentas y ocho pruebas automatizadas definidas. Todavía no existe un despliegue público. Los resultados históricos de [`Plan de pruebas/evidencias-simuladas/`](Plan%20de%20pruebas/evidencias-simuladas/README.md) continúan identificados como simulaciones académicas.
+> **Estado del proyecto:** el Paso 1 fue aceptado en `main`. El incremento 2.2 está en `dev` e incluye autenticación, roles, administración de cuentas, zonas y tareas, respaldado por 18 pruebas automatizadas. Todavía no existe un despliegue público. Los resultados históricos de [`Plan de pruebas/evidencias-simuladas/`](Plan%20de%20pruebas/evidencias-simuladas/README.md) continúan identificados como simulaciones académicas.
 
 ## Objetivo
 
@@ -66,6 +66,7 @@ src/
 |-- config/                  # Configuración general de Django
 |-- apps/
 |   |-- accounts/            # Usuarios, roles y autenticación
+|   |-- chores/              # Zonas, tareas, responsables y frecuencias
 |   `-- core/                # Panel inicial por rol
 |-- templates/               # Interfaz renderizada por Django
 `-- static/                  # CSS e imágenes
@@ -75,7 +76,7 @@ Los módulos de tareas y seguimiento se añadirán en los siguientes incrementos
 
 ## Gestión del trabajo
 
-- **Jira:** <https://sergiomarin2001.atlassian.net> (puede requerir invitación).
+- **Jira:** enlace privado compartido mediante el espacio de entrega académica.
 - **Repositorio:** <https://github.com/WreckerSg/CleanIt>.
 - **Épicas:** Gestión de usuarios, Gestión de tareas de limpieza, Seguimiento y cumplimiento.
 - **Flujo:** To Do, In Progress, In Review y Done.
@@ -115,8 +116,8 @@ Si el repositorio todavía está vacío, siga la [guía para subir el paquete a 
 
 ## Autoría y contexto académico
 
-- **Autor:** Sergio Andres Marin Martinez
+- **Autor:** Estudiante responsable del proyecto
 - **Curso:** Ingeniería de Software
-- **Docente:** Clara Lucía Monsalve Rios
-- **Institución:** Fundación Universitaria Católica del Norte
+- **Docente:** Docente del curso
+- **Institución:** Institución universitaria
 - **Año:** 2026

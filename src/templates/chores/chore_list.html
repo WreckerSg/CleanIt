@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}Tareas | CleanIt{% endblock %}
+
+{% block content %}
+<section class="content-header">
+    <div>
+        <p class="eyebrow">Administración</p>
+        <h1>Tareas de limpieza</h1>
+        <p>Asigna actividades y define cuándo deben realizarse.</p>
+    </div>
+    <div class="header-actions">
+        <a class="button button-ghost" href="{% url 'dashboard' %}">Volver al panel</a>
+        <a class="button button-primary" href="{% url 'chore_create' %}">Nueva tarea</a>
+    </div>
+</section>
+
+<section class="card table-card">
+    {% if chores %}
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tarea</th>
+                        <th>Zona</th>
+                        <th>Responsable</th>
+                        <th>Frecuencia</th>
+                        <th>Próxima fecha</th>
+                        <th>Estado</th>
+                        <th><span class="visually-hidden">Acciones</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for chore in chores %}
+                        <tr>
+                            <td>
+                                <strong>{{ chore.name }}</strong>
+                                {% if chore.description %}<small>{{ chore.description|truncatechars:70 }}</small>{% endif %}
+                            </td>
+                            <td>{{ chore.zone.name }}</td>
+                            <td>{{ chore.assignee }}</td>
+                            <td>{{ chore.get_frequency_display }}</td>
+                            <td>{{ chore.next_due_date|date:"d/m/Y" }}</td>
+                            <td>
+                                <span class="status-tag {% if chore.is_active %}status-active{% endif %}">
+                                    {{ chore.is_active|yesno:"Activa,Retirada" }}
+                                </span>
+                            </td>
+                            <td class="table-actions">
+                                <a href="{% url 'chore_edit' chore.pk %}">Editar</a>
+                                {% if chore.is_active %}
+                                    <form method="post" action="{% url 'chore_retire' chore.pk %}">
+                                        {% csrf_token %}
+                                        <button class="link-danger" type="submit">Retirar</button>
+                                    </form>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <div class="empty-state">
+            <h2>Aún no hay tareas</h2>
+            <p>Crea una zona y registra la primera actividad.</p>
+            <a class="button button-primary" href="{% url 'chore_create' %}">Crear tarea</a>
+        </div>
+    {% endif %}
+</section>
+{% endblock %}

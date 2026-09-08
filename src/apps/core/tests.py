@@ -21,6 +21,8 @@ class DashboardTests(TestCase):
 
         self.assertContains(response, "Mis tareas pendientes")
         self.assertNotContains(response, "Administrar usuarios")
+        self.assertNotContains(response, "Gestionar tareas")
+        self.assertNotContains(response, "Gestionar zonas")
 
     def test_administrator_sees_management_option(self):
         user = User.objects.create_user(
@@ -33,6 +35,8 @@ class DashboardTests(TestCase):
         response = self.client.get(reverse("dashboard"))
 
         self.assertContains(response, "Administrar usuarios")
+        self.assertContains(response, "Gestionar tareas")
+        self.assertContains(response, "Gestionar zonas")
 
     def test_superuser_is_shown_as_administrator(self):
         user = User.objects.create_superuser(

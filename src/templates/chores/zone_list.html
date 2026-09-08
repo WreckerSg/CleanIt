@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}Zonas | CleanIt{% endblock %}
+
+{% block content %}
+<section class="content-header">
+    <div>
+        <p class="eyebrow">Administración</p>
+        <h1>Zonas</h1>
+        <p>Define los espacios donde se realizan las tareas.</p>
+    </div>
+    <div class="header-actions">
+        <a class="button button-ghost" href="{% url 'dashboard' %}">Volver al panel</a>
+        <a class="button button-primary" href="{% url 'zone_create' %}">Nueva zona</a>
+    </div>
+</section>
+
+<section class="card table-card">
+    {% if zones %}
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Zona</th>
+                        <th>Descripción</th>
+                        <th>Estado</th>
+                        <th><span class="visually-hidden">Acciones</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for zone in zones %}
+                        <tr>
+                            <td><strong>{{ zone.name }}</strong></td>
+                            <td>{{ zone.description|default:"Sin descripción" }}</td>
+                            <td>
+                                <span class="status-tag {% if zone.is_active %}status-active{% endif %}">
+                                    {{ zone.is_active|yesno:"Activa,Inactiva" }}
+                                </span>
+                            </td>
+                            <td class="table-actions">
+                                <a href="{% url 'zone_edit' zone.pk %}">Editar</a>
+                                {% if zone.is_active %}
+                                    <form method="post" action="{% url 'zone_deactivate' zone.pk %}">
+                                        {% csrf_token %}
+                                        <button class="link-danger" type="submit">Desactivar</button>
+                                    </form>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <div class="empty-state">
+            <h2>Aún no hay zonas</h2>
+            <p>Crea la primera para poder registrar tareas de limpieza.</p>
+            <a class="button button-primary" href="{% url 'zone_create' %}">Crear zona</a>
+        </div>
+    {% endif %}
+</section>
+{% endblock %}

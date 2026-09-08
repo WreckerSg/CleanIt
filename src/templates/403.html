@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Acceso denegado | CleanIt{% endblock %}
+
+{% block content %}
+<section class="card error-card">
+    <p class="eyebrow">Error 403</p>
+    <h1>Esta función no está disponible para tu rol.</h1>
+    <p>Regresa al panel o consulta al administrador si consideras que necesitas acceso.</p>
+    <a class="button button-primary" href="{% url 'dashboard' %}">Volver al panel</a>
+</section>
+{% endblock %}

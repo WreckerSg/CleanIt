@@ -12,6 +12,10 @@ Los cambios relevantes de CleanIt se documentan en este archivo.
 - Configuración para SQLite local y PostgreSQL mediante Docker Compose.
 - Ocho pruebas automatizadas de modelo, autenticación, acceso, autorización y presentación del rol.
 - Carpeta del Paso 2 con manual, descripción técnica y guía de instalación.
+- Gestión de zonas con creación, edición y desactivación controlada.
+- Gestión de tareas con responsable, frecuencia, próxima fecha y retiro lógico.
+- Permisos de servidor para impedir el acceso administrativo de participantes.
+- Dieciocho pruebas automatizadas aprobadas en el incremento 2.2.
 
 ## [0.2.0] - 2026-09-07
 

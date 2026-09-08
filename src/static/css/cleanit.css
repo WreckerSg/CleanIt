@@ -143,7 +143,9 @@ label {
     font-weight: 700;
 }
 
-input {
+input,
+select,
+textarea {
     width: 100%;
     padding: 0.85rem 0.95rem;
     border: 1px solid #b7c3ca;
@@ -153,7 +155,13 @@ input {
     font: inherit;
 }
 
-input:focus {
+textarea {
+    resize: vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
     border-color: var(--green);
     outline: 3px solid rgb(22 128 93 / 16%);
 }
@@ -188,6 +196,12 @@ input:focus {
     background: transparent;
 }
 
+.button-ghost {
+    border: 1px solid var(--line);
+    color: var(--navy);
+    background: white;
+}
+
 .button-block {
     width: 100%;
     margin-top: 1.5rem;
@@ -199,6 +213,11 @@ input:focus {
     border-radius: 0.5rem;
     color: #86231d;
     background: #ffebe9;
+}
+
+.messages p.success {
+    color: var(--green-dark);
+    background: var(--green-soft);
 }
 
 .hero {
@@ -237,6 +256,170 @@ input:focus {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1.25rem;
+}
+
+.content-header {
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.content-header h1 {
+    margin-bottom: 0.55rem;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+}
+
+.content-header > div > p:last-child {
+    margin-bottom: 0;
+    color: var(--muted);
+}
+
+.header-actions,
+.form-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.form-card {
+    max-width: 850px;
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 1.25rem;
+}
+
+.form-field-wide {
+    grid-column: 1 / -1;
+}
+
+.form-field small {
+    display: block;
+    margin-top: 0.35rem;
+    color: var(--muted);
+}
+
+.field-error {
+    margin: 0.35rem 0 0;
+    color: #a12b24;
+    font-size: 0.85rem;
+}
+
+.form-actions {
+    margin-top: 2rem;
+    justify-content: flex-end;
+}
+
+.table-card {
+    overflow: hidden;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 1rem 1.1rem;
+    border-bottom: 1px solid var(--line);
+    text-align: left;
+    vertical-align: middle;
+}
+
+th {
+    color: var(--navy);
+    background: #f0f5f3;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+td small {
+    margin-top: 0.25rem;
+    display: block;
+    color: var(--muted);
+}
+
+.table-actions {
+    min-width: 145px;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.table-actions a,
+.link-danger {
+    margin-left: 0.8rem;
+    border: 0;
+    color: var(--green-dark);
+    background: none;
+    font: inherit;
+    font-size: 0.86rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.table-actions form {
+    display: inline;
+}
+
+.link-danger {
+    color: #a12b24;
+}
+
+.status-active {
+    color: var(--green-dark);
+    background: var(--green-soft);
+}
+
+.empty-state,
+.error-card {
+    padding: clamp(2rem, 6vw, 4.5rem);
+    text-align: center;
+}
+
+.empty-state h2 {
+    margin-bottom: 0.5rem;
+}
+
+.empty-state p,
+.error-card p {
+    color: var(--muted);
+}
+
+.error-card {
+    max-width: 760px;
+    margin: 4rem auto;
+}
+
+.error-card h1 {
+    max-width: none;
+    font-size: clamp(2rem, 5vw, 3.3rem);
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
 }
 
 .feature-card {
@@ -287,7 +470,8 @@ input:focus {
     }
 
     .site-header,
-    .hero {
+    .hero,
+    .content-header {
         flex-direction: column;
     }
 
@@ -306,8 +490,18 @@ input:focus {
     }
 
     .auth-layout,
-    .dashboard-grid {
+    .dashboard-grid,
+    .form-grid {
         grid-template-columns: 1fr;
+    }
+
+    .form-field-wide {
+        grid-column: auto;
+    }
+
+    .header-actions {
+        width: 100%;
+        flex-wrap: wrap;
     }
 
     .auth-layout {

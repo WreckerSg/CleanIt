@@ -2,12 +2,12 @@
 
 ## Estado actual
 
-El **Paso 1 fue aceptado** y promovido a `main`. El incremento 2.1 de CleanIt se encuentra en `dev` e incorpora una aplicación Django ejecutable con autenticación, roles, panel inicial, administración de cuentas y pruebas automatizadas.
+El **Paso 1 fue aceptado** y promovido a `main`. El incremento 2.1 fue validado en Windows con ocho pruebas aprobadas. El incremento 2.2 se encuentra en `dev` e incorpora zonas, tareas, responsables, frecuencias y dieciocho pruebas automatizadas.
 
 El producto mínimo viable todavía no está completo ni desplegado. En consecuencia:
 
 - el manual del Paso 2 distingue las funciones disponibles de las futuras;
-- ocho verificaciones automatizadas están definidas sobre software real;
+- dieciocho verificaciones automatizadas se ejecutan sobre software real;
 - las evidencias y métricas conservadas dentro del Paso 1 siguen siendo simulaciones académicas históricas;
 - las evidencias reales formales se generarán al promover cada incremento a `qa`;
 - ningún incremento debe considerarse productivo hasta avanzar por `qa`, `pre-main` y `main`.
