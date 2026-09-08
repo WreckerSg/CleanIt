@@ -20,6 +20,8 @@ class DashboardTests(TestCase):
         response = self.client.get(reverse("dashboard"))
 
         self.assertContains(response, "Mis tareas pendientes")
+        self.assertContains(response, 'href="/gestion/tareas/pendientes/"')
+        self.assertContains(response, 'href="/gestion/historial/"')
         self.assertNotContains(response, "Administrar usuarios")
         self.assertNotContains(response, "Gestionar tareas")
         self.assertNotContains(response, "Gestionar zonas")

@@ -8,7 +8,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        No incluya contraseñas, tokens ni datos personales. CleanIt esta actualmente en planificación; use esta plantilla para defectos reales cuando exista una versión ejecutable.
+        No incluya contraseñas, tokens ni datos personales. Indique la versión ejecutable y utilice únicamente datos ficticios para reproducir el problema.
   - type: input
     id: versión
     attributes:
@@ -70,4 +70,3 @@ body:
           required: true
         - label: La evidencia no contiene secretos ni datos personales innecesarios.
           required: true
-

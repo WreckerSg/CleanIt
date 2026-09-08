@@ -43,7 +43,7 @@
                             <td>{{ chore.next_due_date|date:"d/m/Y" }}</td>
                             <td>
                                 <span class="status-tag {% if chore.is_active %}status-active{% endif %}">
-                                    {{ chore.is_active|yesno:"Activa,Retirada" }}
+                                    {{ chore.status_label }}
                                 </span>
                             </td>
                             <td class="table-actions">

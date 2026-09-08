@@ -1,4 +1,4 @@
-// Modelo conceptual propuesto. Debe convertirse en modelos y migraciones de Django.
+// Modelo implementado en las migraciones de Django del MVP 1.0.0.
 
 Enum user_role {
   administrator
@@ -30,6 +30,7 @@ Table zones {
   description text
   is_active boolean [not null, default: true]
   created_at timestamptz [not null]
+  updated_at timestamptz [not null]
 }
 
 Table chores {
@@ -37,27 +38,16 @@ Table chores {
   name varchar(150) [not null]
   description text
   zone_id bigint [not null]
+  assignee_id bigint [not null]
   frequency chore_frequency [not null]
   recurrence_anchor_day integer [note: '1 a 31 para recurrencia mensual']
-  next_due_date date
+  next_due_date date [not null]
   is_active boolean [not null, default: true]
-  created_by_id bigint [not null]
+  created_by_id bigint
   created_at timestamptz [not null]
   updated_at timestamptz [not null]
-}
-
-Table assignments {
-  id bigint [pk, increment]
-  chore_id bigint [not null]
-  assignee_id bigint [not null]
-  starts_on date [not null]
-  ends_on date
-  is_active boolean [not null, default: true]
-  created_by_id bigint [not null]
-  created_at timestamptz [not null]
 
   Indexes {
-    (chore_id, is_active)
     (assignee_id, is_active)
   }
 }
@@ -65,13 +55,9 @@ Table assignments {
 Table completions {
   id bigint [pk, increment]
   chore_id bigint [not null]
-  assignment_id bigint [not null]
   completed_by_id bigint [not null]
   scheduled_for date [not null]
   completed_at timestamptz [not null]
-  chore_name_snapshot varchar(150) [not null]
-  zone_name_snapshot varchar(100) [not null]
-  assignee_name_snapshot varchar(150) [not null]
   note text
 
   Indexes {
@@ -81,11 +67,7 @@ Table completions {
 }
 
 Ref: chores.zone_id > zones.id
+Ref: chores.assignee_id > users.id
 Ref: chores.created_by_id > users.id
-Ref: assignments.chore_id > chores.id
-Ref: assignments.assignee_id > users.id
-Ref: assignments.created_by_id > users.id
 Ref: completions.chore_id > chores.id
-Ref: completions.assignment_id > assignments.id
 Ref: completions.completed_by_id > users.id
-

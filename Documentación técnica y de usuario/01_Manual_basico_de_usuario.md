@@ -2,7 +2,7 @@
 
 ## 1. Estado de esta versión
 
-Este manual corresponde al incremento **2.2**, disponible inicialmente en la rama `dev`. Actualmente funcionan:
+Este manual corresponde a la versión candidata **1.0.0**. Actualmente funcionan:
 
 - inicio de sesión;
 - rechazo de credenciales incorrectas y cuentas inactivas;
@@ -13,15 +13,19 @@ Este manual corresponde al incremento **2.2**, disponible inicialmente en la ram
 - creación, consulta, edición y desactivación de zonas;
 - creación, consulta, edición y retiro lógico de tareas;
 - asignación de responsable, frecuencia y próxima fecha.
+- consulta de tareas pendientes por responsable;
+- registro de cumplimiento con observación opcional;
+- cálculo de próxima fecha para tareas recurrentes;
+- consulta del historial según el rol.
 
-Las tarjetas **Mis tareas pendientes**, **Registrar cumplimiento** e **Historial** muestran la etiqueta **Próximo incremento**. En la versión 2.2 todavía no ejecutan esos procesos para el participante.
+Las funciones de pendientes, cumplimiento e historial están disponibles y cubiertas por la suite de regresión.
 
 ## 2. Perfiles de usuario
 
-| Perfil | Funciones disponibles en 2.2 |
+| Perfil | Funciones disponibles en 2.3 |
 |---|---|
 | Administrador | Iniciar sesión, administrar cuentas autorizadas, zonas y tareas |
-| Participante | Iniciar sesión, consultar su panel personal y cerrar sesión |
+| Participante | Iniciar sesión, consultar pendientes, registrar cumplimientos, revisar su historial y cerrar sesión |
 
 El rol funcional y el permiso de acceso al panel técnico son controles distintos. Un usuario con rol **Administrador** solo podrá abrir `/admin/` si además tiene habilitado el atributo de personal de Django.
 
@@ -53,7 +57,7 @@ Después de ingresar, el participante verá:
 - las tarjetas de pendientes, cumplimiento e historial;
 - el botón **Cerrar sesión**.
 
-En el incremento 2.2 las tres tarjetas anuncian funciones en preparación. El participante no verá **Administrar usuarios**, **Gestionar tareas** ni **Gestionar zonas**.
+Las tarjetas **Mis tareas pendientes**, **Registrar cumplimiento** e **Historial** permiten abrir las funciones correspondientes. El participante no verá **Administrar usuarios**, **Gestionar tareas** ni **Gestionar zonas**.
 
 ## 6. Panel del administrador
 
@@ -105,7 +109,35 @@ La zona debe crearse antes de registrar la tarea. Una cuenta inactiva no puede s
 
 Desde el listado seleccione **Editar** para modificar sus datos. Utilice **Retirar** cuando la actividad deje de ser necesaria. El retiro es lógico: la tarea queda inactiva y sus datos permanecen disponibles para el historial futuro.
 
-## 9. Cerrar sesión
+## 9. Consultar pendientes y registrar cumplimiento
+
+### Consultar tareas pendientes
+
+1. Ingrese con la cuenta del responsable asignado.
+2. En el panel seleccione **Mis tareas pendientes**.
+3. Revise el nombre, la zona, la frecuencia y la próxima fecha.
+4. Si lo necesita, filtre por zona o por estado pendiente/vencido.
+5. Seleccione **Completar** en la actividad que haya realizado.
+
+Solo aparecen tareas activas asignadas a la cuenta autenticada. Las tareas retiradas y las tareas únicas ya completadas no vuelven a aparecer como pendientes.
+
+### Registrar cumplimiento
+
+1. Revise el resumen de la actividad.
+2. Escriba una observación opcional, por ejemplo `Se limpió completamente`.
+3. Seleccione **Confirmar cumplimiento**.
+
+El sistema conserva la tarea, la persona responsable, la fecha y hora del registro y la observación. En una tarea diaria, semanal o mensual se calcula automáticamente la próxima fecha. Una tarea única sale de la lista de pendientes después de completarse.
+
+## 10. Consultar el historial
+
+1. En el panel seleccione **Historial**.
+2. Revise la tarea, zona, responsable, fecha programada, fecha de cumplimiento y observación.
+3. Filtre por zona o rango de fechas; el administrador también puede filtrar por responsable.
+
+Un participante solo consulta sus propios cumplimientos. El administrador puede consultar los cumplimientos de todo el equipo.
+
+## 11. Cerrar sesión
 
 1. Seleccione **Cerrar sesión** en el encabezado.
 2. Compruebe que el sistema regrese a la página de acceso.
@@ -113,7 +145,7 @@ Desde el listado seleccione **Editar** para modificar sus datos. Utilice **Retir
 
 Después de cerrar sesión no se podrá volver al panel sin autenticarse nuevamente.
 
-## 10. Mensajes y situaciones frecuentes
+## 12. Mensajes y situaciones frecuentes
 
 | Situación | Causa probable | Acción recomendada |
 |---|---|---|
@@ -125,14 +157,11 @@ Después de cerrar sesión no se podrá volver al panel sin autenticarse nuevame
 | No aparece una zona o responsable | El registro está inactivo | Active el registro correcto o seleccione otro |
 | No se puede desactivar una zona | Todavía contiene tareas activas | Retire o cambie de zona esas tareas |
 | La aplicación no abre | El servidor no está iniciado o usa otro puerto | Contacte al responsable técnico |
+| No aparece una tarea pendiente | No está asignada a la cuenta, está retirada o ya fue completada | Consulte al administrador o revise el historial |
+| La próxima fecha cambió | Se registró un cumplimiento de una tarea recurrente | Compruebe la nueva fecha calculada |
 
-## 11. Funciones que se añadirán
+## 13. Mejoras posteriores al MVP
 
-Los siguientes incrementos incorporarán, en este orden:
-
-1. consulta de pendientes y vencimientos para el participante;
-2. registro de cumplimiento;
-3. cálculo automático de la siguiente fecha;
-4. historial y filtros.
+Las notificaciones, la recuperación de contraseña por correo, las múltiples sedes y la aplicación móvil no forman parte de la versión 1.0.0. Cualquier incorporación deberá registrarse, priorizarse y pasar nuevamente por las cuatro ramas.
 
 El manual se ampliará únicamente después de comprobar cada función.

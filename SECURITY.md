@@ -2,7 +2,7 @@
 
 ## Alcance actual
 
-CleanIt se encuentra en desarrollo y dispone de un primer incremento ejecutable en `dev`. Todavía no existe una versión productiva ni una URL pública. Esta política se aplica desde la implementación y deberá revisarse antes de promover cambios a `main`.
+CleanIt dispone de una versión candidata 1.0.0 y todavía no tiene una URL pública de la aplicación. Esta política se aplica al código estable y debe revisarse nuevamente al seleccionar el alojamiento.
 
 ## Reporte responsable
 
@@ -31,9 +31,9 @@ Los tiempos son objetivos del plan académico y deberán ajustarse a la capacida
 - HTTPS en producción.
 - `DEBUG=False` fuera del ambiente local.
 - `SECRET_KEY` y credenciales fuera del repositorio.
-- autorización por rol en cada operación sensible; iniciada en el incremento 2.1.
-- protección CSRF y validación de formularios de Django; habilitadas en 2.1.
-- contraseñas administradas por el sistema de autenticación de Django; implementado en 2.1.
+- autorización por rol y por objeto en cada operación sensible;
+- protección CSRF y validación de formularios de Django;
+- contraseñas administradas por el sistema de autenticación de Django;
 - dependencias revisadas y actualizadas periódicamente.
 - respaldos cifrados y restauraciones verificadas.
 - registros sin contraseñas ni datos personales innecesarios.

@@ -2,7 +2,7 @@
 
 Esta carpeta contiene la aplicación web ejecutable de CleanIt.
 
-Los incrementos 2.1 y 2.2 del Paso 2 incluyen:
+Los incrementos 2.1, 2.2 y 2.3 del Paso 2 incluyen:
 
 - Configuración base en Django.
 - Usuarios con roles de administrador y participante.
@@ -11,6 +11,7 @@ Los incrementos 2.1 y 2.2 del Paso 2 incluyen:
 - Panel administrativo de Django.
 - Gestión web de zonas y tareas para el administrador.
 - Responsable, frecuencia, próxima fecha y retiro lógico.
+- Consulta de pendientes, registro de cumplimiento, recurrencias e historial.
 - Pruebas automatizadas de acceso, permisos, validaciones y CRUD.
 
 ## Ejecución local

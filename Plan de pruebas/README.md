@@ -3,7 +3,7 @@
 Esta carpeta concentra exclusivamente el diseño de calidad y pruebas de **CleanIt**. Su organización sigue la plantilla académica de casos de prueba suministrada y los contenidos de la Unidad 3 sobre modelos de calidad, métricas, métodos de prueba y elaboración del plan.
 
 > [!IMPORTANT]
-> CleanIt continúa en fase de planificación. Los casos están **diseñados, pero no ejecutados sobre una aplicación real**. Todo archivo ubicado en `evidencias-simuladas/` está rotulado como simulación académica y deberá reemplazarse cuando exista un MVP ejecutable.
+> CleanIt dispone de un MVP ejecutable. Los resultados históricos de `evidencias-simuladas/` permanecen rotulados como simulación académica y los resultados de la versión candidata se registran separadamente en [`evidencias-reales/`](evidencias-reales/README.md).
 
 ## Contenido
 
@@ -18,6 +18,7 @@ Esta carpeta concentra exclusivamente el diseño de calidad y pruebas de **Clean
 | 7 | [Evidencias simuladas](evidencias-simuladas/README.md) | Mostrar cómo se registrarían ciclos, defectos, repruebas y salidas |
 | 8 | [Plantillas](plantillas/README.md) | Estandarizar el diseño y la futura ejecución de cada caso |
 | 9 | [Documento formal](documentos/Modelo_de_casos_de_prueba_CleanIt.docx) | Presentar el modelo de casos en Word, adaptado de la plantilla suministrada |
+| 10 | [Evidencias reales](evidencias-reales/README.md) | Registrar la ejecución del MVP, cobertura, limitaciones y decisión de promoción |
 
 ## Flujo de calidad por ramas
 
@@ -45,4 +46,3 @@ flowchart LR
 | No aplica | El caso no corresponde al alcance de la versión, con justificación registrada |
 
 Un resultado solo podrá marcarse como **Aprobado**, **Fallido** o **Bloqueado** después de indicar versión o commit, ambiente, fecha, ejecutor y evidencia verificable.
-

@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block title %}Historial | CleanIt{% endblock %}
+
+{% block content %}
+<section class="content-header">
+    <div>
+        <p class="eyebrow">Seguimiento</p>
+        <h1>Historial de cumplimiento</h1>
+        <p>Consulta las tareas realizadas y la fecha en que fueron registradas.</p>
+    </div>
+    <div class="header-actions">
+        <a class="button button-ghost" href="{% url 'dashboard' %}">Volver al panel</a>
+        <a class="button button-primary" href="{% url 'pending_chore_list' %}">Ver pendientes</a>
+    </div>
+</section>
+
+<form class="card filter-bar" method="get">
+    <div>
+        <label for="history-zone">Zona</label>
+        <select id="history-zone" name="zone">
+            <option value="">Todas</option>
+            {% for zone in zones %}
+                <option value="{{ zone.pk }}"{% if selected_zone == zone.pk|stringformat:"s" %} selected{% endif %}>{{ zone.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    {% if user.is_administrator %}
+        <div>
+            <label for="history-user">Responsable</label>
+            <select id="history-user" name="user">
+                <option value="">Todos</option>
+                {% for person in users %}
+                    <option value="{{ person.pk }}"{% if selected_user == person.pk|stringformat:"s" %} selected{% endif %}>{{ person }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    {% endif %}
+    <div>
+        <label for="history-from">Desde</label>
+        <input id="history-from" name="date_from" type="date" value="{{ date_from }}">
+    </div>
+    <div>
+        <label for="history-to">Hasta</label>
+        <input id="history-to" name="date_to" type="date" value="{{ date_to }}">
+    </div>
+    <div class="filter-actions">
+        <button class="button button-primary" type="submit">Filtrar</button>
+        <a class="button button-ghost" href="{% url 'history_list' %}">Limpiar</a>
+    </div>
+</form>
+
+<section class="card table-card">
+    {% if completions %}
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tarea</th>
+                        <th>Zona</th>
+                        <th>Realizada por</th>
+                        <th>Programada para</th>
+                        <th>Fecha y hora</th>
+                        <th>Observación</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for completion in completions %}
+                        <tr>
+                            <td><strong>{{ completion.chore.name }}</strong></td>
+                            <td>{{ completion.chore.zone.name }}</td>
+                            <td>{{ completion.completed_by }}</td>
+                            <td>{{ completion.scheduled_for|date:"d/m/Y" }}</td>
+                            <td>{{ completion.completed_at|date:"d/m/Y H:i" }}</td>
+                            <td>{{ completion.note|default:"—" }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <div class="empty-state">
+            <h2>Aún no hay cumplimientos registrados</h2>
+            <p>Las tareas completadas aparecerán aquí con su responsable y fecha.</p>
+            <a class="button button-primary" href="{% url 'pending_chore_list' %}">Ver pendientes</a>
+        </div>
+    {% endif %}
+</section>
+{% endblock %}

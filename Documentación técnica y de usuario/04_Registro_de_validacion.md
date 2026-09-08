@@ -26,10 +26,30 @@ Las capturas se revisaron durante la validación, pero no se publican porque inc
 
 | Campo | Resultado actual |
 |---|---|
-| Ambiente de desarrollo | Python 3.12, Django 5.2.17 y SQLite |
+| Ambiente de desarrollo | Python 3.10 o superior, Django 5.2.17 y SQLite |
 | Pruebas automatizadas | 18 ejecutadas, 18 aprobadas, 0 fallidas |
 | Comprobación de Django | 0 problemas |
 | Migraciones | Sin cambios pendientes |
-| Validación en Windows | Pendiente después de actualizar `dev` |
+| Validación en Windows | Aprobada con recorrido manual |
 
-La aceptación de este incremento requiere repetir las pruebas en Windows y crear al menos una zona y una tarea con datos ficticios.
+### Recorridos manuales aprobados
+
+- Se creó la zona ficticia `Cocina` y quedó activa.
+- Se creó la tarea `Limpiar la cocina` asignada a `participante1`, con frecuencia semanal.
+- Se editó la descripción de la tarea y el cambio quedó visible.
+- Se impidió desactivar `Cocina` mientras contenía una tarea activa.
+- Se retiró lógicamente la tarea y permaneció visible con estado `Retirada`.
+
+## Incremento 2.3
+
+| Campo | Resultado actual |
+|---|---|
+| Ambiente de desarrollo | Python 3.10 o superior, Django 5.2.17 y SQLite |
+| Pruebas automatizadas | 38 ejecutadas, 38 aprobadas, 0 fallidas |
+| Comprobación de Django | 0 problemas |
+| Comprobación de despliegue | 0 problemas con variables de producción |
+| Dependencias | Sin requisitos rotos según `pip check` |
+| Migraciones | `chores.0002_completion` y `chores.0003_*` aplicadas |
+| Validación funcional | Cubierta por pruebas de vistas, modelos, permisos y filtros |
+
+La ejecución cubre una tarea activa asignada, pendientes aislados por participante, cumplimiento con observación, próxima fecha, prevención de duplicados, historial por rol y filtros. La prueba visual final puede repetirse en Windows como demostración, sin ser una condición para reproducir la suite automatizada.

@@ -2,13 +2,13 @@
 
 ## 1. Estado técnico
 
-CleanIt ya no es solo una propuesta documental. El incremento 2.2 contiene una aplicación Django ejecutable con autenticación, roles, panel diferenciado, administración de cuentas, zonas y tareas. Se encuentra en `dev` hasta completar su validación en Windows.
+CleanIt ya no es solo una propuesta documental. La versión candidata 1.0.0 contiene una aplicación Django ejecutable con autenticación, roles, panel diferenciado, administración de cuentas, zonas, tareas, pendientes, vencimientos, cumplimiento, recurrencias, filtros e historial.
 
 ## 2. Tecnologías utilizadas
 
-| Área | Tecnología versionada | Uso real en el incremento 2.2 |
+| Área | Tecnología versionada | Uso real en la versión 1.0.0 |
 |---|---|---|
-| Lenguaje | Python 3.12 | Configuración, modelos, vistas y pruebas |
+| Lenguaje | Python 3.10 o superior | Configuración, modelos, vistas y pruebas; Docker utiliza Python 3.12 |
 | Framework web | Django 5.2.17 LTS | Autenticación, autorización, ORM, migraciones, plantillas, administración y pruebas |
 | Interfaz | Plantillas Django, HTML5 y CSS3 | Acceso, panel, formularios y tablas adaptables |
 | Base de datos local | SQLite | Ejecución y pruebas rápidas sin servicios externos |
@@ -72,9 +72,11 @@ Es un monolito modular. En este incremento existen:
 - El cierre de sesión exige `POST` y token CSRF.
 - Se habilitaron protección CSRF, `X-Frame-Options: DENY` y `nosniff`.
 - Las cookies de sesión y CSRF están marcadas como `HttpOnly`.
+- En producción se activan redirección HTTPS, cookies seguras y HSTS mediante variables de entorno.
+- Cada cumplimiento se limita a la persona asignada y a una fecha programada única.
 - Los secretos y bases locales están excluidos de Git; fuera de `DEBUG`, la clave secreta es obligatoria.
 
-Antes de producción aún será obligatorio desactivar `DEBUG`, definir una clave secreta real, configurar HTTPS y ejecutar `check --deploy`.
+La configuración candidata superó `check --deploy` con `DEBUG=False`. El ambiente de alojamiento aún deberá suministrar la clave real, dominio, terminación HTTPS y credenciales de base de datos.
 
 ## 6. Persistencia y migraciones
 
@@ -85,16 +87,19 @@ El modelo `accounts.User` amplía `AbstractUser` e incorpora:
 - estado activo heredado de Django;
 - reconocimiento de superusuarios como administradores funcionales.
 
-La migración `accounts/0001_initial.py` crea el esquema de usuarios. La migración `chores/0001_initial.py` incorpora:
+La migración `accounts/0001_initial.py` crea el esquema de usuarios. Las migraciones de `chores` incorporan:
 
 - `Zone`: nombre único, descripción, estado y fechas de control;
-- `Chore`: nombre, descripción, zona, responsable, frecuencia, próxima fecha, estado y autor del registro.
+- `Chore`: nombre, descripción, zona, responsable, frecuencia, día ancla, próxima fecha, estado y autor del registro.
+- `Completion`: tarea, responsable que la realizó, fecha programada única, fecha y hora y observación opcional.
 
 Las relaciones con zona y responsable utilizan `PROTECT` para impedir eliminaciones que rompan la integridad. La interfaz aplica retiro o desactivación lógica mediante `is_active`.
 
+Las tareas recurrentes avanzan su próxima fecha después de registrar un cumplimiento. Las mensuales conservan el día ancla incluso al pasar por febrero. La restricción `one_completion_per_occurrence` y la transacción impiden duplicar una misma ocurrencia. Las tareas únicas quedan fuera de pendientes una vez que tienen un registro, pero conservan su tarea y su cumplimiento para consulta histórica.
+
 ## 7. Pruebas automatizadas actuales
 
-La suite del incremento 2.2 contiene dieciocho verificaciones. Las ocho primeras cubren cuentas y panel:
+La suite de la versión 1.0.0 contiene treinta y ocho verificaciones. Doce cubren cuentas y panel:
 
 | Grupo | Verificación |
 |---|---|
@@ -106,8 +111,12 @@ La suite del incremento 2.2 contiene dieciocho verificaciones. Las ocho primeras
 | Autorización | El participante no ve la administración |
 | Autorización | El administrador sí ve su opción de gestión |
 | Presentación | El superusuario se identifica visualmente como Administrador |
+| Autenticación | Las credenciales válidas crean una sesión |
+| Autenticación | Las credenciales inválidas muestran un mensaje genérico |
+| Modelo | Un correo duplicado se rechaza |
+| Ciclo de vida | La edición y desactivación conservan la identidad del usuario |
 
-Las diez verificaciones restantes cubren la gestión:
+Diez verificaciones cubren la gestión administrativa:
 
 | Grupo | Verificación |
 |---|---|
@@ -122,21 +131,45 @@ Las diez verificaciones restantes cubren la gestión:
 | Retiro lógico | Una tarea solo se retira mediante `POST` |
 | Integridad | Una zona con tareas activas no puede desactivarse |
 
+Las ocho verificaciones adicionales cubren el flujo del participante:
+
+| Grupo | Verificación |
+|---|---|
+| Consulta | El participante solo ve tareas activas asignadas a su cuenta |
+| Acceso | Un visitante es enviado al inicio de sesión al consultar pendientes |
+| Interfaz | El participante puede abrir el formulario de cumplimiento |
+| Cumplimiento | Una tarea única crea un registro y sale de pendientes |
+| Recurrencia | Una tarea semanal calcula su próxima fecha |
+| Autorización | Un participante no puede completar la tarea de otra persona |
+| Historial | El participante consulta únicamente sus propios cumplimientos |
+| Historial | El administrador puede consultar el historial completo |
+
+Ocho verificaciones finales cubren robustez, filtros y seguridad:
+
+| Grupo | Verificación |
+|---|---|
+| Recurrencia | La frecuencia mensual conserva el día 31 después de febrero |
+| Integridad | Un envío repetido no duplica la ocurrencia |
+| Consulta | Los pendientes se filtran por zona y vencimiento |
+| Historial | El administrador filtra el historial por zona |
+| Recurrencia | La frecuencia diaria avanza un día |
+| Recurrencia | El año bisiesto utiliza el 29 de febrero y recupera el día ancla |
+| Autorización | El modelo rechaza un cumplimiento de otra persona |
+| Seguridad | Una escritura sin token CSRF se rechaza |
+
 Comandos de control:
 
 ```bash
 python manage.py test
 python manage.py check
 python manage.py makemigrations --check --dry-run
+python manage.py check --deploy
 ```
 
-La validación del incremento 2.1 en Windows produjo **8 pruebas aprobadas, 0 fallidas**. El incremento 2.2 produjo en desarrollo **18 pruebas aprobadas, 0 fallidas**, sin problemas de sistema ni migraciones sin registrar. La evidencia formal se repetirá al promover el cambio a `qa`.
+La validación del incremento 2.1 en Windows produjo **8 pruebas aprobadas, 0 fallidas**. El incremento 2.2 produjo **18 pruebas aprobadas, 0 fallidas** y fue comprobado manualmente en Windows. La versión candidata produjo **38 pruebas aprobadas, 0 fallidas**, sin problemas de sistema, despliegue ni migraciones sin registrar. Los resultados se conservan en las evidencias reales del plan de pruebas.
 
 ## 8. Limitaciones actuales
 
-- Todavía no existe el registro de cumplimientos ni el cálculo automático de recurrencias.
-- El participante aún no consulta sus tareas desde las tarjetas del panel.
-- No se ha ejecutado la validación formal en `qa`.
 - Docker no pudo ejecutarse dentro del ambiente de edición actual; su configuración debe comprobarse en un equipo con Docker Desktop o Docker Engine.
+- Las pruebas formales de usabilidad móvil, carga, estrés y restauración PostgreSQL requieren un ambiente especializado y permanecen registradas como condicionadas, no aprobadas.
 - No existe un despliegue público.
-- Las tarjetas funcionales del panel son informativas hasta los siguientes incrementos.

@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth import get_user_model
 from django.db.models import Q
 
-from .models import Chore, Zone
+from .models import Chore, Completion, Zone
 
 
 class ZoneForm(forms.ModelForm):
@@ -52,3 +52,27 @@ class ChoreForm(forms.ModelForm):
         if not assignee.is_active and assignee.pk != self.instance.assignee_id:
             raise forms.ValidationError("Seleccione una persona activa.")
         return assignee
+
+    def save(self, commit=True):
+        chore = super().save(commit=False)
+        if "next_due_date" in self.changed_data:
+            chore.recurrence_anchor_day = chore.next_due_date.day
+        if commit:
+            chore.save()
+        return chore
+
+
+class CompletionForm(forms.ModelForm):
+    scheduled_for = forms.DateField(widget=forms.HiddenInput)
+
+    class Meta:
+        model = Completion
+        fields = ("note", "scheduled_for")
+        widgets = {
+            "note": forms.Textarea(
+                attrs={
+                    "rows": 4,
+                    "placeholder": "Opcional: agrega una observación o evidencia.",
+                }
+            ),
+        }

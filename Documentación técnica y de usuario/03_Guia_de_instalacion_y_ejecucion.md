@@ -4,7 +4,7 @@
 
 ### Requisitos
 
-- Python 3.12.
+- Python 3.10 o superior.
 - Git.
 - Terminal PowerShell, Bash o equivalente.
 
@@ -96,10 +96,10 @@ python manage.py check
 python manage.py makemigrations --check --dry-run
 ```
 
-El resultado esperado para el incremento 2.2 es:
+El resultado esperado para la versión candidata 1.0.0 es:
 
-- 18 pruebas ejecutadas;
-- 18 pruebas aprobadas;
+- 38 pruebas ejecutadas;
+- 38 pruebas aprobadas;
 - 0 fallos;
 - 0 problemas reportados por `check`;
 - ninguna migración pendiente de crear.
@@ -108,9 +108,15 @@ El resultado esperado para el incremento 2.2 es:
 
 | Problema | Acción |
 |---|---|
-| `python` no se reconoce | Instale Python 3.12 y habilite su acceso desde la terminal |
+| `python` no se reconoce | Instale Python 3.10 o superior y habilite su acceso desde la terminal |
 | `No module named django` | Active `.venv` y ejecute `pip install -r requirements.txt` |
 | Migraciones pendientes | Ejecute `python manage.py migrate` |
 | El puerto 8000 está ocupado | Use `python manage.py runserver 8001` |
 | Docker no conecta con PostgreSQL | Revise `docker compose logs db` y los valores de `.env` |
 | No puede abrir `/admin/` | Compruebe que la cuenta sea superusuario o tenga permiso de personal |
+
+Si el puerto 8000 no está disponible en Windows, puede ejecutar:
+
+```powershell
+.\.venv\Scripts\python.exe manage.py runserver 127.0.0.1:8081
+```

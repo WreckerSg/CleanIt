@@ -17,21 +17,21 @@
         <span class="feature-icon" aria-hidden="true">☷</span>
         <h2>Mis tareas pendientes</h2>
         <p>Consulta las actividades asignadas y su próxima fecha.</p>
-        <span class="status-tag">Próximo incremento</span>
+        <a class="button button-primary" href="{% url 'pending_chore_list' %}">Ver pendientes</a>
     </article>
 
     <article class="card feature-card">
         <span class="feature-icon" aria-hidden="true">✓</span>
         <h2>Registrar cumplimiento</h2>
         <p>Marca una actividad como realizada y conserva la evidencia.</p>
-        <span class="status-tag">Próximo incremento</span>
+        <a class="button button-primary" href="{% url 'pending_chore_list' %}">Registrar tarea</a>
     </article>
 
     <article class="card feature-card">
         <span class="feature-icon" aria-hidden="true">◷</span>
         <h2>Historial</h2>
         <p>Revisa quién completó cada tarea y en qué momento.</p>
-        <span class="status-tag">Próximo incremento</span>
+        <a class="button button-primary" href="{% url 'history_list' %}">Ver historial</a>
     </article>
 
     {% if is_administrator %}

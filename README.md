@@ -3,7 +3,7 @@
 CleanIt es una aplicación web en desarrollo para organizar, asignar y supervisar tareas de limpieza en una casa compartida, residencia estudiantil o pequeño local. El sistema busca reemplazar acuerdos verbales y mensajes dispersos por responsabilidades visibles, frecuencias definidas y un historial verificable.
 
 > [!IMPORTANT]
-> **Estado del proyecto:** el Paso 1 fue aceptado en `main`. El incremento 2.2 está en `dev` e incluye autenticación, roles, administración de cuentas, zonas y tareas, respaldado por 18 pruebas automatizadas. Todavía no existe un despliegue público. Los resultados históricos de [`Plan de pruebas/evidencias-simuladas/`](Plan%20de%20pruebas/evidencias-simuladas/README.md) continúan identificados como simulaciones académicas.
+> **Estado del proyecto:** la versión candidata 1.0.0 incluye autenticación, roles, administración de cuentas, zonas, tareas, pendientes, cumplimiento, recurrencias e historial, respaldada por 38 pruebas automatizadas. El repositorio conserva una versión estable, aunque todavía no existe un despliegue público. Los resultados históricos de [`Plan de pruebas/evidencias-simuladas/`](Plan%20de%20pruebas/evidencias-simuladas/README.md) continúan identificados como simulaciones académicas.
 
 ## Objetivo
 
@@ -32,13 +32,13 @@ Quedan fuera de la primera versión los pagos, la contratación de personal, el 
 | Evidencias simuladas | [Resultados simulados](Plan%20de%20pruebas/evidencias-simuladas/README.md) | Dos ciclos hipotéticos, defectos y salida de ejemplo |
 | Manual básico | [Manual de usuario](Documentaci%C3%B3n%20t%C3%A9cnica%20y%20de%20usuario/01_Manual_basico_de_usuario.md) | Procedimientos comprobados para administrador y participante |
 | Documentación técnica | [Descripción y justificación técnica](Documentaci%C3%B3n%20t%C3%A9cnica%20y%20de%20usuario/02_Descripcion_y_justificacion_tecnica.md) | [Guía de instalación](Documentaci%C3%B3n%20t%C3%A9cnica%20y%20de%20usuario/03_Guia_de_instalacion_y_ejecucion.md) y diagramas |
-| Gestión postproyecto | [Estrategia postproyecto](docs/06_GESTION_POST_PROYECTO.md) | Plantillas de incidencias y cambios en `.github/` |
+| Gestión postproyecto | [Carpeta del Paso 3](Gestión%20post-proyecto/README.md) | Estrategia, transferencia, operación y plantillas de incidencias |
 
 Los documentos de la actividad anterior y el cronograma están conservados en [`docs/antecedentes/`](docs/antecedentes/README.md).
 
 ## Tecnologías utilizadas
 
-- **Interfaz:** plantillas de Django, HTML y CSS; Bootstrap se incorporará con los formularios del producto.
+- **Interfaz:** plantillas de Django, HTML y CSS propio adaptable.
 - **Lógica del servidor:** Python y Django.
 - **Persistencia:** PostgreSQL mediante Django ORM.
 - **Ambiente reproducible:** Docker Compose.
@@ -52,7 +52,7 @@ La selección busca reducir la complejidad de un producto CRUD pequeño. Django 
 ```mermaid
 flowchart LR
     U["Usuario en navegador"] -->|HTTPS| D["Aplicación Django"]
-    D --> T["Plantillas + Bootstrap"]
+    D --> T["Plantillas + CSS"]
     D --> O["Django ORM"]
     O --> P[(PostgreSQL)]
 ```
@@ -72,7 +72,7 @@ src/
 `-- static/                  # CSS e imágenes
 ```
 
-Los módulos de tareas y seguimiento se añadirán en los siguientes incrementos sin separar el producto en servicios innecesarios.
+Los módulos de tareas y seguimiento se mantienen dentro de la aplicación Django sin separar el producto en servicios innecesarios.
 
 ## Gestión del trabajo
 
@@ -107,10 +107,11 @@ Las reglas completas están en [CONTRIBUTING.md](CONTRIBUTING.md).
 1. Leer este archivo y el [estado del proyecto](docs/00_ESTADO_DEL_PROYECTO.md).
 2. Revisar el índice del [Plan de pruebas](Plan%20de%20pruebas/README.md).
 3. Comprobar que los [resultados](Plan%20de%20pruebas/evidencias-simuladas/README.md) están identificados como simulados.
-4. Consultar la carpeta de [Documentación técnica y de usuario](Documentaci%C3%B3n%20t%C3%A9cnica%20y%20de%20usuario/README.md).
-5. Seguir la [guía de instalación y ejecución](Documentaci%C3%B3n%20t%C3%A9cnica%20y%20de%20usuario/03_Guia_de_instalacion_y_ejecucion.md).
-6. Evaluar la [estrategia de soporte y mantenimiento](docs/06_GESTION_POST_PROYECTO.md).
-7. Completar el [checklist antes de presentar la URL](docs/08_CHECKLIST_DE_ENTREGA.md).
+4. Consultar las [evidencias reales](Plan%20de%20pruebas/evidencias-reales/README.md) de la versión candidata.
+5. Consultar la carpeta de [Documentación técnica y de usuario](Documentaci%C3%B3n%20t%C3%A9cnica%20y%20de%20usuario/README.md).
+6. Seguir la [guía de instalación y ejecución](Documentaci%C3%B3n%20t%C3%A9cnica%20y%20de%20usuario/03_Guia_de_instalacion_y_ejecucion.md).
+7. Evaluar la [estrategia de soporte y mantenimiento](Gestión%20post-proyecto/01_Estrategia_de_seguimiento_y_soporte.md).
+8. Completar el [checklist antes de presentar la URL](docs/08_CHECKLIST_DE_ENTREGA.md).
 
 Si el repositorio todavía está vacío, siga la [guía para subir el paquete a GitHub](docs/11_GUIA_PARA_SUBIR_A_GITHUB.md).
 

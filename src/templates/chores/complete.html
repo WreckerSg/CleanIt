@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Registrar cumplimiento | CleanIt{% endblock %}
+
+{% block content %}
+<section class="content-header">
+    <div>
+        <p class="eyebrow">Seguimiento</p>
+        <h1>Registrar cumplimiento</h1>
+        <p>Confirma que la actividad fue realizada y conserva una observación opcional.</p>
+    </div>
+</section>
+
+<section class="card form-card">
+    <div class="detail-summary">
+        <h2>{{ chore.name }}</h2>
+        <p><strong>Zona:</strong> {{ chore.zone.name }}</p>
+        <p><strong>Frecuencia:</strong> {{ chore.get_frequency_display }}</p>
+        <p><strong>Próxima fecha:</strong> {{ chore.next_due_date|date:"d/m/Y" }}</p>
+        {% if chore.description %}<p class="muted">{{ chore.description }}</p>{% endif %}
+    </div>
+
+    <form method="post" novalidate>
+        {% csrf_token %}
+        {% if form.non_field_errors %}
+            <div class="form-error" role="alert">{{ form.non_field_errors }}</div>
+        {% endif %}
+        {% for hidden in form.hidden_fields %}
+            {{ hidden }}
+            {% for error in hidden.errors %}<p class="field-error">{{ error }}</p>{% endfor %}
+        {% endfor %}
+        {% for field in form.visible_fields %}
+            <div class="form-field form-field-wide">
+                {{ field.label_tag }}
+                {{ field }}
+                {% if field.help_text %}<small>{{ field.help_text }}</small>{% endif %}
+                {% for error in field.errors %}<p class="field-error">{{ error }}</p>{% endfor %}
+            </div>
+        {% endfor %}
+        <div class="form-actions">
+            <a class="button button-ghost" href="{% url 'pending_chore_list' %}">Cancelar</a>
+            <button class="button button-primary" type="submit">Confirmar cumplimiento</button>
+        </div>
+    </form>
+</section>
+{% endblock %}

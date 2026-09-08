@@ -4,7 +4,7 @@
 
 Definir cómo se realizará el seguimiento, soporte, mantenimiento y evolución de CleanIt después de entregar una primera versión funcional. La estrategia busca que los problemas tengan responsable, prioridad, evidencia y cierre verificable, y que el producto pueda mantenerse sin depender exclusivamente de quien lo desarrolló inicialmente.
 
-> Esta es una estrategia propuesta para un producto en planificación. Los tiempos y responsables deberán confirmarse antes de la puesta en producción.
+> La carpeta vigente del Paso 3 se encuentra en [`Gestión post-proyecto/`](../Gestión%20post-proyecto/README.md). Este documento conserva el desarrollo ampliado de la estrategia y sus metas deben revisarse con datos reales antes de un despliegue público.
 
 ## 2. Objetivos operativos
 
@@ -130,7 +130,7 @@ Indicadores técnicos iniciales:
 - tiempo de respuesta p95 de acceso, pendientes, finalización e historial;
 - tasa de respuestas 5xx;
 - conexiones y uso de almacenamiento de PostgreSQL;
-- resultado y antiguedad del último respaldo;
+- resultado y antigüedad del último respaldo;
 - errores de autenticación agregados;
 - trabajos de mantenimiento fallidos.
 
@@ -141,7 +141,7 @@ Alertas prioritarias:
 - base de datos inaccesible;
 - respaldo diario fallido o demasiado antiguo;
 - almacenamiento próximo a agotarse;
-- patron anormal de intentos de acceso.
+- patrón anormal de intentos de acceso.
 
 ## 11. Respaldo y continuidad
 
@@ -198,7 +198,7 @@ Las metas se revisarán después de disponer de datos reales. No se utilizarán 
 - seguimiento diario de errores y respaldos;
 - atención prioritaria a bloqueos de acceso y cumplimiento;
 - encuesta breve de claridad;
-- correcciones pequenas sin ampliar alcance.
+- correcciones pequeñas sin ampliar alcance.
 
 ### Días 31 a 60 - Ajuste
 

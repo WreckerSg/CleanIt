@@ -14,7 +14,14 @@ El material académico diferencia métricas del proceso y del producto, además 
 
 Estos valores miden los artefactos de planificación, no la calidad de un programa ejecutable.
 
-## 3. Métricas de ejecución futuras
+| Métrica real del MVP | Fórmula | Resultado |
+|---|---|---:|
+| Verificaciones automatizadas aprobadas | Aprobadas / ejecutadas x 100 | 38 / 38 = 100 % |
+| Casos aplicables al ambiente local | Ejecutados / aplicables x 100 | 26 / 26 = 100 % |
+| Requisitos funcionales con cobertura | Historias cubiertas / historias totales x 100 | 9 / 9 = 100 % |
+| Problemas de configuración de Django | Problemas detectados | 0 |
+
+## 3. Métricas de ejecución
 
 | Métrica | Fórmula | Meta o regla |
 |---|---|---|
@@ -59,7 +66,7 @@ El escenario académico utiliza 30 casos:
 - Ciclo 2 simulado: reprueba de los 5 defectos y regresión de 7 casos; todos aprobados.
 - Consolidado hipotético: 30 de 30 aprobados.
 
-Estos resultados demuestran el cálculo y la toma de decisión, pero **no son métricas obtenidas de CleanIt**. El valor real actual de casos ejecutados es 0.
+Estos resultados demuestran el cálculo y la toma de decisión, pero **no son métricas obtenidas de CleanIt**. Los valores reales se conservan en [`evidencias-reales/`](evidencias-reales/README.md) y nunca se combinan con los simulados.
 
 ## 7. Reglas de publicación
 
@@ -68,4 +75,3 @@ Estos resultados demuestran el cálculo y la toma de decisión, pero **no son m�
 3. Separar siempre resultados reales, simulados y metas.
 4. Conservar el dato base que permita recalcular porcentajes.
 5. No incluir contraseñas, tokens ni datos personales en evidencias.
-

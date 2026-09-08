@@ -12,4 +12,7 @@ urlpatterns = [
     path("tareas/nueva/", views.chore_create, name="chore_create"),
     path("tareas/<int:pk>/editar/", views.chore_edit, name="chore_edit"),
     path("tareas/<int:pk>/retirar/", views.chore_retire, name="chore_retire"),
+    path("tareas/pendientes/", views.pending_chore_list, name="pending_chore_list"),
+    path("tareas/<int:pk>/completar/", views.chore_complete, name="chore_complete"),
+    path("historial/", views.history_list, name="history_list"),
 ]

@@ -1,7 +1,7 @@
 # Modelo de casos de prueba de CleanIt
 
 > [!IMPORTANT]
-> **Estado:** 30 casos diseñados y 0 ejecutados realmente. El modelo se basa en la plantilla académica suministrada y separa definición, ejecución y evidencia.
+> **Estado:** 30 casos diseñados. La ejecución del MVP y los casos condicionados por ambiente se detallan en [`evidencias-reales/`](evidencias-reales/README.md); las fichas siguientes conservan el diseño original.
 
 ## Control del documento
 
@@ -10,8 +10,8 @@
 | Proyecto | CleanIt - Organizador de tareas de limpieza |
 | Versión | 1.1 |
 | Responsable de verificación | Rol Calidad y DevOps |
-| Autor | Sergio Andres Marin Martinez |
-| Estado | Diseñado, pendiente de ejecución real |
+| Autor | Estudiante responsable del proyecto |
+| Estado | Diseño completo; ejecución registrada por versión |
 
 ## Resumen
 
@@ -47,8 +47,8 @@ Pruebas automatizadas y aisladas de reglas del dominio.
 | Componente o subsistema | Tareas / validadores |
 | Prioridad | Alta |
 | Responsable previsto | Backend y datos |
-| Versión objetivo | MVP 0.1.0 (futura) |
-| Estado | Diseñado - no ejecutado |
+| Versión objetivo | MVP 1.0.0 |
+| Estado | Diseñado; ejecución registrada por versión |
 
 **Objetivo:** Comprobar que una tarea solo acepte nombre, zona, fecha y frecuencia pertenecientes al dominio definido.
 
@@ -79,8 +79,8 @@ Pruebas automatizadas y aisladas de reglas del dominio.
 | Componente o subsistema | Asignaciones |
 | Prioridad | Alta |
 | Responsable previsto | Backend y datos |
-| Versión objetivo | MVP 0.1.0 (futura) |
-| Estado | Diseñado - no ejecutado |
+| Versión objetivo | MVP 1.0.0 |
+| Estado | Diseñado; ejecución registrada por versión |
 
 **Objetivo:** Verificar que la regla de asignación solo permita personas activas.
 
@@ -111,8 +111,8 @@ Pruebas automatizadas y aisladas de reglas del dominio.
 | Componente o subsistema | Servicio de recurrencia |
 | Prioridad | Alta |
 | Responsable previsto | Backend y datos |
-| Versión objetivo | MVP 0.1.0 (futura) |
-| Estado | Diseñado - no ejecutado |
+| Versión objetivo | MVP 1.0.0 |
+| Estado | Diseñado; ejecución registrada por versión |
 
 **Objetivo:** Comprobar el cálculo de la siguiente fecha para frecuencias diaria y semanal.
 
@@ -143,8 +143,8 @@ Pruebas automatizadas y aisladas de reglas del dominio.
 | Componente o subsistema | Servicio de recurrencia |
 | Prioridad | Alta |
 | Responsable previsto | Backend y datos |
-| Versión objetivo | MVP 0.1.0 (futura) |
-| Estado | Diseñado - no ejecutado |
+| Versión objetivo | MVP 1.0.0 |
+| Estado | Diseñado; ejecución registrada por versión |
 
 **Objetivo:** Validar meses con diferente cantidad de días y años bisiestos sin perder el día de referencia.
 
@@ -175,8 +175,8 @@ Pruebas automatizadas y aisladas de reglas del dominio.
 | Componente o subsistema | Seguimiento |
 | Prioridad | Alta |
 | Responsable previsto | Backend y datos |
-| Versión objetivo | MVP 0.1.0 (futura) |
-| Estado | Diseñado - no ejecutado |
+| Versión objetivo | MVP 1.0.0 |
+| Estado | Diseñado; ejecución registrada por versión |
 
 **Objetivo:** Comprobar que el estado visible dependa de la próxima fecha, la finalización y el retiro lógico.
 
@@ -211,8 +211,8 @@ Interacción entre componentes, subsistemas y persistencia.
 | Componente o subsistema | Cuentas, vistas y sesiones |
 | Prioridad | Alta |
 | Responsable previsto | Backend y datos / QA |
-| Versión objetivo | MVP 0.1.0 (futura) |
-| Estado | Diseñado - no ejecutado |
+| Versión objetivo | MVP 1.0.0 |
+| Estado | Diseñado; ejecución registrada por versión |
 
 **Objetivo:** Confirmar que Django autentique cuentas activas y aplique permisos al acceder a vistas protegidas.
 
@@ -243,8 +243,8 @@ Interacción entre componentes, subsistemas y persistencia.
 | Componente o subsistema | Personas, formularios y ORM |
 | Prioridad | Alta |
 | Responsable previsto | Backend y datos / QA |
-| Versión objetivo | MVP 0.1.0 (futura) |
-| Estado | Diseñado - no ejecutado |
+| Versión objetivo | MVP 1.0.0 |
+| Estado | Diseñado; ejecución registrada por versión |
 
 **Objetivo:** Verificar registro, edición y desactivación a través de formulario, vista y base de datos.
 
@@ -275,8 +275,8 @@ Interacción entre componentes, subsistemas y persistencia.
 | Componente o subsistema | Tareas, formularios, ORM e historial |
 | Prioridad | Alta |
 | Responsable previsto | Backend y datos / QA |
-| Versión objetivo | MVP 0.1.0 (futura) |
-| Estado | Diseñado - no ejecutado |
+| Versión objetivo | MVP 1.0.0 |
+| Estado | Diseñado; ejecución registrada por versión |
 
 **Objetivo:** Comprobar que el ciclo de vida de la tarea preserve su identidad y la trazabilidad histórica.
 
@@ -307,8 +307,8 @@ Interacción entre componentes, subsistemas y persistencia.
 | Componente o subsistema | Tareas, personas y asignaciones |
 | Prioridad | Alta |
 | Responsable previsto | Backend y datos / QA |
-| Versión objetivo | MVP 0.1.0 (futura) |
-| Estado | Diseñado - no ejecutado |
+| Versión objetivo | MVP 1.0.0 |
+| Estado | Diseñado; ejecución registrada por versión |
 
 **Objetivo:** Confirmar que interfaz y servidor coincidan al permitir solamente responsables activos.
 
@@ -339,8 +339,8 @@ Interacción entre componentes, subsistemas y persistencia.
 | Componente o subsistema | Seguimiento, recurrencia y ORM |
 | Prioridad | Alta |
 | Responsable previsto | Backend y datos / QA |
-| Versión objetivo | MVP 0.1.0 (futura) |
-| Estado | Diseñado - no ejecutado |
+| Versión objetivo | MVP 1.0.0 |
+| Estado | Diseñado; ejecución registrada por versión |
 
 **Objetivo:** Verificar la operación transaccional que registra un cumplimiento y programa la siguiente ocurrencia.
 
@@ -371,8 +371,8 @@ Interacción entre componentes, subsistemas y persistencia.
 | Componente o subsistema | Seguimiento y base de datos |
 | Prioridad | Alta |
 | Responsable previsto | Backend y datos / QA |
-| Versión objetivo | MVP 0.1.0 (futura) |
-| Estado | Diseñado - no ejecutado |
+| Versión objetivo | MVP 1.0.0 |
+| Estado | Diseñado; ejecución registrada por versión |
 
 **Objetivo:** Proteger la integridad cuando se reciben dos solicitudes casi simultáneas para la misma ocurrencia.
 
@@ -407,8 +407,8 @@ Recorridos completos observados desde la perspectiva de los roles.
 | Componente o subsistema | Acceso e interfaz |
 | Prioridad | Alta |
 | Responsable previsto | QA |
-| Versión objetivo | MVP 0.1.0 (futura) |
-| Estado | Diseñado - no ejecutado |
+| Versión objetivo | MVP 1.0.0 |
+| Estado | Diseñado; ejecución registrada por versión |
 
 **Objetivo:** Validar el recorrido de inicio de sesión y la redirección según el rol.
 
@@ -439,8 +439,8 @@ Recorridos completos observados desde la perspectiva de los roles.
 | Componente o subsistema | Acceso e interfaz |
 | Prioridad | Alta |
 | Responsable previsto | QA |
-| Versión objetivo | MVP 0.1.0 (futura) |
-| Estado | Diseñado - no ejecutado |
+| Versión objetivo | MVP 1.0.0 |
+| Estado | Diseñado; ejecución registrada por versión |
 
 **Objetivo:** Evitar sesiones con contraseña incorrecta, usuario inexistente o cuenta inactiva.
 
@@ -471,8 +471,8 @@ Recorridos completos observados desde la perspectiva de los roles.
 | Componente o subsistema | Administración de personas |
 | Prioridad | Alta |
 | Responsable previsto | QA |
-| Versión objetivo | MVP 0.1.0 (futura) |
-| Estado | Diseñado - no ejecutado |
+| Versión objetivo | MVP 1.0.0 |
+| Estado | Diseñado; ejecución registrada por versión |
 
 **Objetivo:** Comprobar el recorrido administrativo para crear una persona participante.
 
@@ -503,8 +503,8 @@ Recorridos completos observados desde la perspectiva de los roles.
 | Componente o subsistema | Administración de personas |
 | Prioridad | Alta |
 | Responsable previsto | QA |
-| Versión objetivo | MVP 0.1.0 (futura) |
-| Estado | Diseñado - no ejecutado |
+| Versión objetivo | MVP 1.0.0 |
+| Estado | Diseñado; ejecución registrada por versión |
 
 **Objetivo:** Confirmar que la interfaz y el servidor rechacen datos incompletos, inválidos o duplicados.
 
@@ -535,8 +535,8 @@ Recorridos completos observados desde la perspectiva de los roles.
 | Componente o subsistema | Administración de personas |
 | Prioridad | Alta |
 | Responsable previsto | QA |
-| Versión objetivo | MVP 0.1.0 (futura) |
-| Estado | Diseñado - no ejecutado |
+| Versión objetivo | MVP 1.0.0 |
+| Estado | Diseñado; ejecución registrada por versión |
 
 **Objetivo:** Comprobar que el administrador actualice una persona y pueda desactivarla sin borrar su historial.
 
@@ -567,8 +567,8 @@ Recorridos completos observados desde la perspectiva de los roles.
 | Componente o subsistema | Administración de tareas |
 | Prioridad | Alta |
 | Responsable previsto | QA |
-| Versión objetivo | MVP 0.1.0 (futura) |
-| Estado | Diseñado - no ejecutado |
+| Versión objetivo | MVP 1.0.0 |
+| Estado | Diseñado; ejecución registrada por versión |
 
 **Objetivo:** Validar el flujo completo de creación de una tarea de limpieza.
 
@@ -599,8 +599,8 @@ Recorridos completos observados desde la perspectiva de los roles.
 | Componente o subsistema | Administración de tareas |
 | Prioridad | Alta |
 | Responsable previsto | QA |
-| Versión objetivo | MVP 0.1.0 (futura) |
-| Estado | Diseñado - no ejecutado |
+| Versión objetivo | MVP 1.0.0 |
+| Estado | Diseñado; ejecución registrada por versión |
 
 **Objetivo:** Comprobar edición y retiro lógico preservando cumplimientos anteriores.
 
@@ -631,8 +631,8 @@ Recorridos completos observados desde la perspectiva de los roles.
 | Componente o subsistema | Tareas y recurrencia |
 | Prioridad | Alta |
 | Responsable previsto | QA |
-| Versión objetivo | MVP 0.1.0 (futura) |
-| Estado | Diseñado - no ejecutado |
+| Versión objetivo | MVP 1.0.0 |
+| Estado | Diseñado; ejecución registrada por versión |
 
 **Objetivo:** Validar desde la interfaz las frecuencias única, diaria, semanal y mensual.
 
@@ -663,8 +663,8 @@ Recorridos completos observados desde la perspectiva de los roles.
 | Componente o subsistema | Tareas y personas |
 | Prioridad | Alta |
 | Responsable previsto | QA |
-| Versión objetivo | MVP 0.1.0 (futura) |
-| Estado | Diseñado - no ejecutado |
+| Versión objetivo | MVP 1.0.0 |
+| Estado | Diseñado; ejecución registrada por versión |
 
 **Objetivo:** Comprobar el flujo de asignación y el rechazo de cuentas inactivas.
 
@@ -695,8 +695,8 @@ Recorridos completos observados desde la perspectiva de los roles.
 | Componente o subsistema | Seguimiento |
 | Prioridad | Alta |
 | Responsable previsto | QA |
-| Versión objetivo | MVP 0.1.0 (futura) |
-| Estado | Diseñado - no ejecutado |
+| Versión objetivo | MVP 1.0.0 |
+| Estado | Diseñado; ejecución registrada por versión |
 
 **Objetivo:** Confirmar el aislamiento entre participantes y la priorización por vencimiento y fecha.
 
@@ -727,8 +727,8 @@ Recorridos completos observados desde la perspectiva de los roles.
 | Componente o subsistema | Seguimiento e historial |
 | Prioridad | Alta |
 | Responsable previsto | QA |
-| Versión objetivo | MVP 0.1.0 (futura) |
-| Estado | Diseñado - no ejecutado |
+| Versión objetivo | MVP 1.0.0 |
+| Estado | Diseñado; ejecución registrada por versión |
 
 **Objetivo:** Validar el recorrido principal desde pendientes hasta la consulta administrativa del cumplimiento.
 
@@ -763,8 +763,8 @@ Seguridad, usabilidad, rendimiento, estrés y recuperación.
 | Componente o subsistema | Autorización |
 | Prioridad | Alta |
 | Responsable previsto | QA / Seguridad |
-| Versión objetivo | MVP 0.1.0 (futura) |
-| Estado | Diseñado - no ejecutado |
+| Versión objetivo | MVP 1.0.0 |
+| Estado | Diseñado; ejecución registrada por versión |
 
 **Objetivo:** Impedir que un participante acceda a administración o a objetos pertenecientes a otra persona.
 
@@ -795,8 +795,8 @@ Seguridad, usabilidad, rendimiento, estrés y recuperación.
 | Componente o subsistema | Aplicación y configuración |
 | Prioridad | Alta |
 | Responsable previsto | QA / Seguridad |
-| Versión objetivo | MVP 0.1.0 (futura) |
-| Estado | Diseñado - no ejecutado |
+| Versión objetivo | MVP 1.0.0 |
+| Estado | Diseñado; ejecución registrada por versión |
 
 **Objetivo:** Comprobar controles CSRF, validación de entradas y ausencia de secretos versionados.
 
@@ -827,8 +827,8 @@ Seguridad, usabilidad, rendimiento, estrés y recuperación.
 | Componente o subsistema | Interfaz |
 | Prioridad | Media |
 | Responsable previsto | Frontend/UX / QA |
-| Versión objetivo | MVP 0.1.0 (futura) |
-| Estado | Diseñado - no ejecutado |
+| Versión objetivo | MVP 1.0.0 |
+| Estado | Diseñado; ejecución registrada por versión |
 
 **Objetivo:** Verificar adaptabilidad, comprensión y finalización de los cuatro recorridos principales.
 
@@ -859,8 +859,8 @@ Seguridad, usabilidad, rendimiento, estrés y recuperación.
 | Componente o subsistema | Aplicación y base de datos |
 | Prioridad | Media |
 | Responsable previsto | QA / DevOps |
-| Versión objetivo | MVP 0.1.0 (futura) |
-| Estado | Diseñado - no ejecutado |
+| Versión objetivo | MVP 1.0.0 |
+| Estado | Diseñado; ejecución registrada por versión |
 
 **Objetivo:** Medir las operaciones principales con una carga representativa para grupos pequeños.
 
@@ -891,8 +891,8 @@ Seguridad, usabilidad, rendimiento, estrés y recuperación.
 | Componente o subsistema | Aplicación, servidor y base de datos |
 | Prioridad | Media |
 | Responsable previsto | QA / DevOps |
-| Versión objetivo | MVP 0.1.0 (futura) |
-| Estado | Diseñado - no ejecutado |
+| Versión objetivo | MVP 1.0.0 |
+| Estado | Diseñado; ejecución registrada por versión |
 
 **Objetivo:** Observar degradación al superar la carga objetivo y confirmar recuperación sin corrupción.
 
@@ -923,8 +923,8 @@ Seguridad, usabilidad, rendimiento, estrés y recuperación.
 | Componente o subsistema | PostgreSQL y almacenamiento |
 | Prioridad | Alta |
 | Responsable previsto | DevOps / QA |
-| Versión objetivo | MVP 0.1.0 (futura) |
-| Estado | Diseñado - no ejecutado |
+| Versión objetivo | MVP 1.0.0 |
+| Estado | Diseñado; ejecución registrada por versión |
 
 **Objetivo:** Comprobar que un respaldo permita recuperar usuarios, tareas, asignaciones e historial.
 
@@ -959,8 +959,8 @@ Formato, completitud, correctitud y entendibilidad.
 | Componente o subsistema | Plan de pruebas |
 | Prioridad | Media |
 | Responsable previsto | QA / Revisor académico |
-| Versión objetivo | MVP 0.1.0 (futura) |
-| Estado | Diseñado - no ejecutado |
+| Versión objetivo | MVP 1.0.0 |
+| Estado | Diseñado; ejecución registrada por versión |
 
 **Objetivo:** Evaluar formato, completitud, correctitud, trazabilidad y entendibilidad de los documentos del Paso 1.
 
@@ -991,8 +991,8 @@ Formato, completitud, correctitud y entendibilidad.
 | Componente o subsistema | Manual y descripción técnica |
 | Prioridad | Media |
 | Responsable previsto | QA / Product Owner |
-| Versión objetivo | MVP 0.1.0 (futura) |
-| Estado | Diseñado - no ejecutado |
+| Versión objetivo | MVP 1.0.0 |
+| Estado | Diseñado; ejecución registrada por versión |
 
 **Objetivo:** Confirmar que la documentación futura corresponda al alcance, versión y comportamiento del sistema.
 

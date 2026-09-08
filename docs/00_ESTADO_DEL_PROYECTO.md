@@ -2,15 +2,15 @@
 
 ## Estado actual
 
-El **Paso 1 fue aceptado** y promovido a `main`. El incremento 2.1 fue validado en Windows con ocho pruebas aprobadas. El incremento 2.2 se encuentra en `dev` e incorpora zonas, tareas, responsables, frecuencias y dieciocho pruebas automatizadas.
+El **Paso 1 fue aceptado**. Los incrementos 2.1 y 2.2 fueron validados en Windows. La versión candidata 1.0.0 completa el MVP con pendientes, cumplimiento, recurrencias, filtros e historial, y supera treinta y ocho pruebas automatizadas.
 
-El producto mínimo viable todavía no está completo ni desplegado. En consecuencia:
+El producto mínimo viable está completo como versión estable del repositorio, pero todavía no está desplegado públicamente. En consecuencia:
 
-- el manual del Paso 2 distingue las funciones disponibles de las futuras;
-- dieciocho verificaciones automatizadas se ejecutan sobre software real;
+- el manual del Paso 2 describe las funciones disponibles y separa las mejoras futuras;
+- treinta y ocho verificaciones automatizadas se ejecutan sobre software real;
 - las evidencias y métricas conservadas dentro del Paso 1 siguen siendo simulaciones académicas históricas;
-- las evidencias reales formales se generarán al promover cada incremento a `qa`;
-- ningún incremento debe considerarse productivo hasta avanzar por `qa`, `pre-main` y `main`.
+- las evidencias reales se conservan separadas de las simulaciones históricas;
+- la presencia en `main` identifica una versión estable del repositorio, no un servicio público desplegado.
 
 ## Propósito de la simulación
 
@@ -34,4 +34,4 @@ Para cada incremento que llegue a `qa` se deberá:
 | 0.1 | Planificación | Alcance, riesgos, Scrum, Jira y stack definidos. |
 | 0.2 | Entrega final documental | Plan de pruebas, manual, documentación técnica y gestión postproyecto. |
 | 0.3 | En desarrollo | Base navegable y primeras pruebas automatizadas reales. |
-| 1.0 | Futura | Producto mínimo viable aceptado y desplegado. |
+| 1.0 | Estable | Producto mínimo viable aceptado en el repositorio; despliegue público pendiente. |

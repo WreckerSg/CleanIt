@@ -2,11 +2,11 @@
 
 Los cambios relevantes de CleanIt se documentan en este archivo.
 
-## [0.3.0] - En desarrollo
+## [1.0.0] - 2026-09-08
 
 ### Agregado
 
-- Aplicación ejecutable con Python 3.12 y Django 5.2.17 LTS.
+- Aplicación ejecutable con Python 3.10 o superior y Django 5.2.17 LTS.
 - Usuario personalizado con roles Administrador y Participante.
 - Inicio y cierre de sesión, panel diferenciado y administración de cuentas.
 - Configuración para SQLite local y PostgreSQL mediante Docker Compose.
@@ -14,8 +14,17 @@ Los cambios relevantes de CleanIt se documentan en este archivo.
 - Carpeta del Paso 2 con manual, descripción técnica y guía de instalación.
 - Gestión de zonas con creación, edición y desactivación controlada.
 - Gestión de tareas con responsable, frecuencia, próxima fecha y retiro lógico.
+- Consulta de tareas pendientes para cada responsable.
+- Registro de cumplimiento con observación opcional e historial por rol.
+- Cálculo de próxima fecha para frecuencias diarias, semanales y mensuales.
 - Permisos de servidor para impedir el acceso administrativo de participantes.
 - Dieciocho pruebas automatizadas aprobadas en el incremento 2.2.
+- Veintiséis pruebas automatizadas aprobadas en el incremento 2.3.
+- Filtros de zona, vencimiento, responsable y rango de fechas.
+- Prevención de cumplimientos duplicados por tarea y fecha programada.
+- Conservación del día ancla en recurrencias mensuales y años bisiestos.
+- Configuración de seguridad para producción e integración continua en cuatro ramas.
+- Treinta y ocho pruebas automatizadas aprobadas para la versión 1.0.0.
 
 ## [0.2.0] - 2026-09-07
 

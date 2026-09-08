@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block title %}Mis tareas | CleanIt{% endblock %}
+
+{% block content %}
+<section class="content-header">
+    <div>
+        <p class="eyebrow">Seguimiento</p>
+        <h1>Mis tareas pendientes</h1>
+        <p>Consulta las actividades asignadas y registra su cumplimiento.</p>
+    </div>
+    <div class="header-actions">
+        <a class="button button-ghost" href="{% url 'dashboard' %}">Volver al panel</a>
+        <a class="button button-ghost" href="{% url 'history_list' %}">Ver historial</a>
+    </div>
+</section>
+
+<form class="card filter-bar" method="get">
+    <div>
+        <label for="zone-filter">Zona</label>
+        <select id="zone-filter" name="zone">
+            <option value="">Todas</option>
+            {% for zone in zones %}
+                <option value="{{ zone.pk }}"{% if selected_zone == zone.pk|stringformat:"s" %} selected{% endif %}>{{ zone.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div>
+        <label for="status-filter">Estado</label>
+        <select id="status-filter" name="status">
+            <option value="all"{% if selected_status == "all" %} selected{% endif %}>Todas</option>
+            <option value="overdue"{% if selected_status == "overdue" %} selected{% endif %}>Vencidas</option>
+            <option value="pending"{% if selected_status == "pending" %} selected{% endif %}>Pendientes</option>
+        </select>
+    </div>
+    <div class="filter-actions">
+        <button class="button button-primary" type="submit">Filtrar</button>
+        <a class="button button-ghost" href="{% url 'pending_chore_list' %}">Limpiar</a>
+    </div>
+</form>
+
+<section class="card table-card">
+    {% if chores %}
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tarea</th>
+                        <th>Zona</th>
+                        <th>Frecuencia</th>
+                        <th>Próxima fecha</th>
+                        <th>Estado</th>
+                        <th><span class="visually-hidden">Acción</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for chore in chores %}
+                        <tr>
+                            <td>
+                                <strong>{{ chore.name }}</strong>
+                                {% if chore.description %}<small>{{ chore.description|truncatechars:80 }}</small>{% endif %}
+                            </td>
+                            <td>{{ chore.zone.name }}</td>
+                            <td>{{ chore.get_frequency_display }}</td>
+                            <td>{{ chore.next_due_date|date:"d/m/Y" }}</td>
+                            <td>
+                                {% if chore.is_overdue %}
+                                    <span class="status-tag status-overdue">Vencida</span>
+                                {% else %}
+                                    <span class="status-tag status-active">Pendiente</span>
+                                {% endif %}
+                            </td>
+                            <td class="table-actions">
+                                <a class="button button-primary" href="{% url 'chore_complete' chore.pk %}">Completar</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <div class="empty-state">
+            <h2>No tienes tareas pendientes</h2>
+            <p>Cuando el administrador te asigne una actividad, aparecerá aquí.</p>
+            <a class="button button-ghost" href="{% url 'dashboard' %}">Volver al panel</a>
+        </div>
+    {% endif %}
+</section>
+{% endblock %}

@@ -12,13 +12,13 @@
 
 ## Antes de subir a GitHub
 
-- [ ] Descomprimir el paquete sin crear una carpeta duplicada dentro del repositorio.
-- [ ] Confirmar que `README.md` queda en la raíz.
-- [ ] Revisar nombre, docente, curso y enlaces.
-- [ ] Subir los archivos de antecedentes si se desean conservar en el repositorio.
-- [ ] Comprobar que ningún archivo contiene contraseñas, tokens o datos personales innecesarios.
-- [ ] Confirmar que los enlaces Markdown funcionan en GitHub.
-- [ ] Realizar un commit con una clave de Jira, por ejemplo `SCRUM-35 agrega documentación de entrega final`.
+- [x] Descomprimir el paquete sin crear una carpeta duplicada dentro del repositorio.
+- [x] Confirmar que `README.md` queda en la raíz.
+- [x] Revisar autoría anonimizada, curso y enlaces.
+- [x] Conservar los archivos de antecedentes en su carpeta identificada.
+- [x] Comprobar que ningún archivo de texto contiene contraseñas, tokens o datos personales innecesarios.
+- [x] Confirmar que los enlaces Markdown locales funcionan.
+- [x] Realizar commits con claves de Jira.
 - [ ] Revisar el repositorio desde una ventana sin sesión si se compartirá públicamente.
 
 ## Antes de presentar en la plataforma
@@ -32,8 +32,8 @@
 
 ## Control de honestidad académica
 
-- [x] El estado de planificación está declarado.
+- [x] El estado real del MVP y la ausencia de despliegue público están declarados.
 - [x] Los resultados simulados están rotulados en todos los archivos pertinentes.
 - [x] No se afirma que exista un despliegue.
 - [x] No se incluyen capturas inventadas de una interfaz funcional.
-- [ ] Las simulaciones se reemplazarán por evidencia real si se implementa el MVP.
+- [x] Las evidencias reales se agregaron separadamente sin alterar las simulaciones históricas.
