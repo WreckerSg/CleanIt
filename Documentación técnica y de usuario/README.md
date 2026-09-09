@@ -18,7 +18,7 @@ Esta carpeta reúne los dos entregables solicitados en el Paso 2 y se actualiza 
 | 2.1 | Base Django, autenticación, roles, panel inicial y administración de cuentas | Validado localmente: 8/8 pruebas y recorridos por rol aprobados |
 | 2.2 | Gestión de personas, zonas y tareas | Validado manualmente en Windows |
 | 2.3 | Asignaciones, frecuencias, pendientes, cumplimiento e historial | Aprobado mediante regresión automatizada |
-| 2.4 | Evidencias reales, filtros, seguridad y refinamiento del manual | Completado en la versión candidata 1.0.0 |
+| 2.4 | Evidencias reales, filtros, seguridad y refinamiento del manual | Completado en la versión 1.0.1 |
 
 La documentación solo identifica como operativas las funciones comprobadas en el código. Las mejoras posteriores al MVP deberán actualizar nuevamente el manual y la descripción técnica.
 

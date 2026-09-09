@@ -28,18 +28,18 @@
 | PSF-11 | Aprobado | Cumplimiento e historial filtrable |
 | PSN-01 | Aprobado | Autorización por rol y por objeto |
 | PSN-02 | Aprobado | CSRF, validación, secretos externos y `check --deploy` |
+| PSN-03 | Aprobado | Recorridos principales completados en un teléfono por Wi-Fi |
+| PSN-06 | Aprobado | Respaldo y restauración aislada de PostgreSQL mediante Docker |
 | PD-01 | Aprobado | Plan, cifras, trazabilidad y separación de evidencias revisados |
 | PD-02 | Aprobado | Manual y documentación sincronizados con el código |
 
-Resultado aplicable: **26 aprobados de 26 ejecutados; tasa de aprobación 100 %**.
+Resultado aplicable: **28 aprobados de 28 ejecutados; tasa de aprobación 100 %**.
 
 ## Casos condicionados
 
 | Caso | Estado | Condición pendiente |
 |---|---|---|
-| PSN-03 | Condicionado | Sesión formal de usabilidad móvil con usuarios y medición de tiempo |
 | PSN-04 | Condicionado | Generador de carga con 50 usuarios durante 10 minutos |
 | PSN-05 | Condicionado | Ambiente aislado para estrés y recuperación |
-| PSN-06 | Condicionado | Host con Docker/PostgreSQL para respaldo y restauración |
 
-Estos cuatro casos no se contabilizan como aprobados ni fallidos. Se ejecutarán antes de utilizar el sistema con datos reales en un despliegue público.
+Estos dos casos no se contabilizan como aprobados ni fallidos. Se ejecutarán antes de utilizar el sistema con datos reales en un despliegue público.

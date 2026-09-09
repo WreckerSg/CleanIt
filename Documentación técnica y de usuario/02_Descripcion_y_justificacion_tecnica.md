@@ -2,11 +2,11 @@
 
 ## 1. Estado técnico
 
-CleanIt ya no es solo una propuesta documental. La versión candidata 1.0.0 contiene una aplicación Django ejecutable con autenticación, roles, panel diferenciado, administración de cuentas, zonas, tareas, pendientes, vencimientos, cumplimiento, recurrencias, filtros e historial.
+CleanIt ya no es solo una propuesta documental. La versión 1.0.1 contiene una aplicación Django ejecutable con autenticación, roles, panel diferenciado, administración de cuentas, zonas, tareas, pendientes, vencimientos, cumplimiento, recurrencias, filtros e historial.
 
 ## 2. Tecnologías utilizadas
 
-| Área | Tecnología versionada | Uso real en la versión 1.0.0 |
+| Área | Tecnología versionada | Uso real en la versión 1.0.1 |
 |---|---|---|
 | Lenguaje | Python 3.10 o superior | Configuración, modelos, vistas y pruebas; Docker utiliza Python 3.12 |
 | Framework web | Django 5.2.17 LTS | Autenticación, autorización, ORM, migraciones, plantillas, administración y pruebas |
@@ -100,7 +100,7 @@ Las tareas recurrentes avanzan su próxima fecha después de registrar un cumpli
 
 ## 7. Pruebas automatizadas actuales
 
-La suite de la versión 1.0.0 contiene treinta y ocho verificaciones. Doce cubren cuentas y panel:
+La suite de la versión 1.0.1 contiene treinta y ocho verificaciones. Doce cubren cuentas y panel:
 
 | Grupo | Verificación |
 |---|---|
@@ -171,6 +171,6 @@ La validación del incremento 2.1 en Windows produjo **8 pruebas aprobadas, 0 fa
 
 ## 8. Limitaciones actuales
 
-- Docker no pudo ejecutarse dentro del ambiente de edición actual; su configuración debe comprobarse en un equipo con Docker Desktop o Docker Engine.
-- Las pruebas formales de usabilidad móvil, carga, estrés y restauración PostgreSQL requieren un ambiente especializado y permanecen registradas como condicionadas, no aprobadas.
+- Docker, PostgreSQL, la restauración aislada y la interfaz móvil fueron comprobados en un equipo Windows.
+- Las pruebas de carga y estrés requieren un ambiente especializado y permanecen registradas como condicionadas, no aprobadas.
 - No existe un despliegue público.

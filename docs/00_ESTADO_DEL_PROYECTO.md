@@ -2,7 +2,7 @@
 
 ## Estado actual
 
-El **Paso 1 fue aceptado**. Los incrementos 2.1 y 2.2 fueron validados en Windows. La versión candidata 1.0.0 completa el MVP con pendientes, cumplimiento, recurrencias, filtros e historial, y supera treinta y ocho pruebas automatizadas.
+El **Paso 1 fue aceptado**. Los incrementos 2.1 y 2.2 fueron validados en Windows. La versión 1.0.1 completa el MVP con pendientes, cumplimiento, recurrencias, filtros e historial, supera treinta y ocho pruebas automatizadas y fue comprobada con Docker, PostgreSQL y un dispositivo móvil.
 
 El producto mínimo viable está completo como versión estable del repositorio, pero todavía no está desplegado públicamente. En consecuencia:
 

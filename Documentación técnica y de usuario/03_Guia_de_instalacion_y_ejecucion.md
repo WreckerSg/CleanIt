@@ -98,7 +98,7 @@ python manage.py check
 python manage.py makemigrations --check --dry-run
 ```
 
-El resultado esperado para la versión candidata 1.0.0 es:
+El resultado esperado para la versión 1.0.1 es:
 
 - 38 pruebas ejecutadas;
 - 38 pruebas aprobadas;

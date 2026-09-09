@@ -2,7 +2,7 @@
 
 ## 1. Estado de esta versión
 
-Este manual corresponde a la versión candidata **1.0.0**. Actualmente funcionan:
+Este manual corresponde a la versión **1.0.1**. Actualmente funcionan:
 
 - inicio de sesión;
 - rechazo de credenciales incorrectas y cuentas inactivas;
@@ -162,6 +162,6 @@ Después de cerrar sesión no se podrá volver al panel sin autenticarse nuevame
 
 ## 13. Mejoras posteriores al MVP
 
-Las notificaciones, la recuperación de contraseña por correo, las múltiples sedes y la aplicación móvil no forman parte de la versión 1.0.0. Cualquier incorporación deberá registrarse, priorizarse y pasar nuevamente por las cuatro ramas.
+Las notificaciones, la recuperación de contraseña por correo, las múltiples sedes y una aplicación móvil nativa no forman parte de la versión 1.0.1. La interfaz web adaptable sí fue validada desde un teléfono. Cualquier incorporación deberá registrarse, priorizarse y pasar nuevamente por las cuatro ramas.
 
 El manual se ampliará únicamente después de comprobar cada función.

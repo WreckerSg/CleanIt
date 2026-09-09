@@ -25,3 +25,7 @@
 Las capturas observadas durante el recorrido no se almacenan en el repositorio porque incluían elementos personales o ajenos a la aplicación en la interfaz del navegador.
 
 Los flujos de pendientes, cumplimiento, recurrencia e historial quedaron cubiertos por pruebas funcionales automatizadas. Pueden repetirse visualmente durante la demostración con datos ficticios.
+
+La validación posterior en Docker, PostgreSQL y un teléfono conectado por Wi-Fi
+se encuentra en
+[`04_Validacion_Docker_PostgreSQL_y_movil.md`](04_Validacion_Docker_PostgreSQL_y_movil.md).

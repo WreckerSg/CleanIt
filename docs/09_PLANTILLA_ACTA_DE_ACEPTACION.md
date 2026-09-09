@@ -5,7 +5,7 @@
 | Campo | Información |
 |---|---|
 | Proyecto | CleanIt |
-| Versión o etiqueta | 1.0.0 |
+| Versión o etiqueta | 1.0.1 |
 | Commit | Versión estable de la rama `main` |
 | Fecha | 8 de septiembre de 2026 |
 | Ambiente | Django 5.2.17, Python 3.10 o superior y SQLite de pruebas |
@@ -24,21 +24,21 @@ Historias, defectos y cambios incluidos:
 
 | Indicador | Resultado |
 |---|---:|
-| Casos aplicables | 26 |
-| Aprobados | 26 |
+| Casos aplicables | 28 |
+| Aprobados | 28 |
 | Fallidos | 0 |
-| Condicionados por ambiente | 4 |
+| Condicionados por ambiente | 2 |
 | Verificaciones automatizadas | 38 de 38 aprobadas |
 | Defectos críticos abiertos | 0 |
 | Defectos altos abiertos | 0 |
-| Restauración PostgreSQL verificada | No; requiere host con Docker |
+| Restauración PostgreSQL verificada | Sí; restauración aislada comprobada en Docker |
 
 Enlace al informe y evidencias: [`Plan de pruebas/evidencias-reales/`](../Plan%20de%20pruebas/evidencias-reales/README.md).
 
 ## Riesgos u observaciones aceptados
 
 - No existe despliegue público ni proveedor de alojamiento seleccionado.
-- Usabilidad móvil formal, carga, estrés y restauración PostgreSQL deberán ejecutarse antes de operar con datos reales.
+- Las pruebas de carga y estrés deberán ejecutarse antes de operar públicamente con una concurrencia superior al alcance del MVP.
 
 ## Decisión
 

@@ -37,4 +37,7 @@ Destroying test database for alias 'default'...
 
 ## Limitación del ambiente
 
-Docker no está instalado en el ambiente de ejecución utilizado. Por lo tanto, la configuración de Compose y PostgreSQL fue revisada como código, pero el arranque de contenedores y la restauración permanecen condicionados a un host con Docker.
+La ejecución automatizada inicial utilizó SQLite. Posteriormente, el ambiente
+Docker con PostgreSQL, la restauración aislada y la entrega de archivos estáticos
+se comprobaron en Windows; los resultados se registran en
+[`04_Validacion_Docker_PostgreSQL_y_movil.md`](04_Validacion_Docker_PostgreSQL_y_movil.md).

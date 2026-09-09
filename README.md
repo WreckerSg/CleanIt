@@ -3,7 +3,7 @@
 CleanIt es una aplicación web en desarrollo para organizar, asignar y supervisar tareas de limpieza en una casa compartida, residencia estudiantil o pequeño local. El sistema busca reemplazar acuerdos verbales y mensajes dispersos por responsabilidades visibles, frecuencias definidas y un historial verificable.
 
 > [!IMPORTANT]
-> **Estado del proyecto:** la versión candidata 1.0.0 incluye autenticación, roles, administración de cuentas, zonas, tareas, pendientes, cumplimiento, recurrencias e historial, respaldada por 38 pruebas automatizadas. El repositorio conserva una versión estable, aunque todavía no existe un despliegue público. Los resultados históricos de [`Plan de pruebas/evidencias-simuladas/`](Plan%20de%20pruebas/evidencias-simuladas/README.md) continúan identificados como simulaciones académicas.
+> **Estado del proyecto:** la versión 1.0.1 incluye autenticación, roles, administración de cuentas, zonas, tareas, pendientes, cumplimiento, recurrencias e historial, respaldada por 38 pruebas automatizadas y validaciones reales en Docker, PostgreSQL y un dispositivo móvil. El repositorio conserva una versión estable, aunque todavía no existe un despliegue público. Los resultados históricos de [`Plan de pruebas/evidencias-simuladas/`](Plan%20de%20pruebas/evidencias-simuladas/README.md) continúan identificados como simulaciones académicas.
 
 ## Objetivo
 

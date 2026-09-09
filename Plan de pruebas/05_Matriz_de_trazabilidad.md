@@ -50,7 +50,11 @@
 | Casos documentales diseñados | 2 |
 | **Total de casos diseñados** | **30** |
 | Verificaciones automatizadas ejecutadas | **38** |
-| Casos diseñados aplicables al ambiente local | **26 de 26 (100 %)** |
-| Casos condicionados por ambiente especializado | **4: PSN-03 a PSN-06** |
+| Casos diseñados ejecutados | **28 de 28 (100 %)** |
+| Casos condicionados por ambiente especializado | **2: PSN-04 y PSN-05** |
 
-La cobertura de diseño continúa siendo 30 de 30. La ejecución real del MVP cubre los casos unitarios, de integración, funcionales, de seguridad y documentales aplicables al ambiente local. Usabilidad móvil formal, carga, estrés y restauración de PostgreSQL permanecen condicionados a un ambiente especializado y no se presentan como aprobados.
+La cobertura de diseño continúa siendo 30 de 30. La ejecución real del MVP cubre
+los casos unitarios, de integración, funcionales, de seguridad, documentales,
+compatibilidad móvil y restauración de PostgreSQL. Las pruebas de carga y estrés
+permanecen condicionadas a un ambiente especializado y no se presentan como
+aprobadas.

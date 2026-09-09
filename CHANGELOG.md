@@ -10,6 +10,12 @@ Los cambios relevantes de CleanIt se documentan en este archivo.
 - El contenedor reúne los archivos estáticos antes de iniciar la aplicación.
 - El puerto web externo puede configurarse con `WEB_PORT` y utiliza `8081` por defecto.
 
+### Verificado
+
+- Recorrido funcional desde un teléfono conectado por Wi-Fi.
+- Ejecución integrada con PostgreSQL 16 mediante Docker Compose.
+- Respaldo y restauración de PostgreSQL en una base aislada.
+
 ## [1.0.0] - 2026-09-08
 
 ### Agregado
