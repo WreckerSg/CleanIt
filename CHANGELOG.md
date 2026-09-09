@@ -2,6 +2,14 @@
 
 Los cambios relevantes de CleanIt se documentan en este archivo.
 
+## [1.0.1] - 2026-09-09
+
+### Corregido
+
+- La interfaz CSS se sirve correctamente al ejecutar Django con Gunicorn en Docker.
+- El contenedor reúne los archivos estáticos antes de iniciar la aplicación.
+- El puerto web externo puede configurarse con `WEB_PORT` y utiliza `8081` por defecto.
+
 ## [1.0.0] - 2026-09-08
 
 ### Agregado

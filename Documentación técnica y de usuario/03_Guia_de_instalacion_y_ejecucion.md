@@ -66,7 +66,8 @@ Windows PowerShell:
 Copy-Item .env.example .env
 ```
 
-Construya e inicie Django y PostgreSQL:
+Construya e inicie Django y PostgreSQL. El contenedor ejecuta las migraciones,
+reúne los archivos estáticos y los sirve mediante WhiteNoise y Gunicorn:
 
 ```bash
 docker compose up --build -d
@@ -78,7 +79,8 @@ Cree el administrador inicial:
 docker compose exec web python manage.py createsuperuser
 ```
 
-Abra `http://127.0.0.1:8000/`.
+Abra `http://127.0.0.1:8081/`. Puede cambiar el puerto externo con `WEB_PORT`
+en `.env`; el puerto interno del contenedor permanece en `8000`.
 
 Para detener los servicios sin borrar los datos:
 

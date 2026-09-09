@@ -19,6 +19,7 @@ services:
     restart: unless-stopped
     command: >-
       sh -c "python manage.py migrate --noinput &&
+      python manage.py collectstatic --noinput &&
       gunicorn config.wsgi:application --chdir src --bind 0.0.0.0:8000"
     environment:
       DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY:?Defina DJANGO_SECRET_KEY en .env}
@@ -41,7 +42,7 @@ services:
       db:
         condition: service_healthy
     ports:
-      - "8000:8000"
+      - "${WEB_PORT:-8081}:8000"
 
 volumes:
   cleanit_postgres:

@@ -14,6 +14,7 @@ CleanIt ya no es solo una propuesta documental. La versión candidata 1.0.0 cont
 | Base de datos local | SQLite | Ejecución y pruebas rápidas sin servicios externos |
 | Base de datos integrada | PostgreSQL 16 | Servicio persistente definido en Docker Compose |
 | Servidor de aplicación | Gunicorn 23.0.0 | Ejecución WSGI dentro del contenedor web |
+| Archivos estáticos | WhiteNoise 6.12.0 | Entrega del CSS versionado cuando se utiliza Gunicorn |
 | Contenedores | Docker y Docker Compose | Reproducción de Django y PostgreSQL |
 | Versionamiento | Git y GitHub | Flujo `dev` → `qa` → `pre-main` → `main` |
 
@@ -39,7 +40,7 @@ La selección se realiza automáticamente: si existe `DATABASE_HOST`, Django usa
 
 ### Docker Compose
 
-El archivo `compose.yaml` describe los servicios `web` y `db`, comprueba la disponibilidad de PostgreSQL antes de iniciar Django y conserva los datos en un volumen. De esta forma el equipo puede repetir el mismo ambiente sin instalar PostgreSQL directamente.
+El archivo `compose.yaml` describe los servicios `web` y `db`, comprueba la disponibilidad de PostgreSQL antes de iniciar Django y conserva los datos en un volumen. Antes de iniciar Gunicorn, el servicio web ejecuta las migraciones y `collectstatic`; WhiteNoise entrega la hoja de estilos sin depender del servidor de desarrollo. El puerto externo se controla con `WEB_PORT`. De esta forma el equipo puede repetir el mismo ambiente sin instalar PostgreSQL directamente.
 
 ## 4. Arquitectura implementada
 
