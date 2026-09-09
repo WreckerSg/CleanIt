@@ -7,6 +7,7 @@
 | `python manage.py test` | 38 pruebas ejecutadas, 38 aprobadas, 0 fallidas |
 | `python manage.py check` | 0 problemas |
 | `python manage.py makemigrations --check --dry-run` | No se detectaron migraciones pendientes |
+| `python manage.py collectstatic --noinput` | CSS recopilado y manifiesto generado |
 | `python manage.py check --deploy` con variables de producción | 0 problemas |
 | `python -m pip check` | No se detectaron requisitos rotos |
 | `python -m compileall -q src manage.py` | Compilación sintáctica correcta |
@@ -41,3 +42,7 @@ La ejecución automatizada inicial utilizó SQLite. Posteriormente, el ambiente
 Docker con PostgreSQL, la restauración aislada y la entrega de archivos estáticos
 se comprobaron en Windows; los resultados se registran en
 [`04_Validacion_Docker_PostgreSQL_y_movil.md`](04_Validacion_Docker_PostgreSQL_y_movil.md).
+
+El flujo de GitHub Actions ejecuta `collectstatic` antes de la suite. Esto genera
+el manifiesto que WhiteNoise necesita al resolver `css/cleanit.css` durante las
+pruebas de plantillas.

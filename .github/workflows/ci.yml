@@ -34,6 +34,9 @@ jobs:
       - name: Comprobar configuración
         run: python manage.py check
 
+      - name: Recopilar archivos estáticos
+        run: python manage.py collectstatic --noinput
+
       - name: Ejecutar pruebas
         run: python manage.py test
 

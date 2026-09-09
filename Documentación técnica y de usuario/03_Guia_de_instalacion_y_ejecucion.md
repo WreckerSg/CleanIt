@@ -93,9 +93,10 @@ docker compose down
 Antes de proponer un cambio para `qa`:
 
 ```bash
-python manage.py test
 python manage.py check
 python manage.py makemigrations --check --dry-run
+python manage.py collectstatic --noinput
+python manage.py test
 ```
 
 El resultado esperado para la versión 1.0.1 es:
@@ -104,6 +105,7 @@ El resultado esperado para la versión 1.0.1 es:
 - 38 pruebas aprobadas;
 - 0 fallos;
 - 0 problemas reportados por `check`;
+- archivos estáticos recopilados correctamente;
 - ninguna migración pendiente de crear.
 
 ## Solución de problemas
